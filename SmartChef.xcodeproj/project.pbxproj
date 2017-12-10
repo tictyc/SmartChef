@@ -11,7 +11,11 @@
 		3F3040221FDA88C5000090E1 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3040211FDA88C5000090E1 /* FridgeViewController.swift */; };
 		3F3040241FDA88DB000090E1 /* MicrowaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */; };
 		3F3040261FDA88E7000090E1 /* FireAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */; };
-		3FAD00B01FD137CA0072D09F /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00AF1FD137CA0072D09F /* Devices.swift */; };
+		3FA2000E1FDD345A002C8E08 /* Microwave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2000D1FDD345A002C8E08 /* Microwave.swift */; };
+		3FA200101FDD3466002C8E08 /* CoffeeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2000F1FDD3466002C8E08 /* CoffeeMachine.swift */; };
+		3FA200121FDD3470002C8E08 /* Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA200111FDD3470002C8E08 /* Fridge.swift */; };
+		3FA200141FDD3480002C8E08 /* FireAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA200131FDD3480002C8E08 /* FireAlarm.swift */; };
+		3FAD00B01FD137CA0072D09F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00AF1FD137CA0072D09F /* Device.swift */; };
 		3FAD00B21FD14B850072D09F /* DeviceLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B11FD14B850072D09F /* DeviceLine.swift */; };
 		3FAD00B61FD15D8B0072D09F /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B51FD15D8B0072D09F /* DeviceTableViewCell.swift */; };
 		3FAD00B81FD15FA70072D09F /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */; };
@@ -45,7 +49,11 @@
 		3F3040211FDA88C5000090E1 /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
 		3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrowaveViewController.swift; sourceTree = "<group>"; };
 		3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAlarmViewController.swift; sourceTree = "<group>"; };
-		3FAD00AF1FD137CA0072D09F /* Devices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
+		3FA2000D1FDD345A002C8E08 /* Microwave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microwave.swift; sourceTree = "<group>"; };
+		3FA2000F1FDD3466002C8E08 /* CoffeeMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMachine.swift; sourceTree = "<group>"; };
+		3FA200111FDD3470002C8E08 /* Fridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fridge.swift; sourceTree = "<group>"; };
+		3FA200131FDD3480002C8E08 /* FireAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAlarm.swift; sourceTree = "<group>"; };
+		3FAD00AF1FD137CA0072D09F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		3FAD00B11FD14B850072D09F /* DeviceLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLine.swift; sourceTree = "<group>"; };
 		3FAD00B51FD15D8B0072D09F /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewController.swift; sourceTree = "<group>"; };
@@ -91,8 +99,12 @@
 		3FAD00AE1FD137940072D09F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FAD00AF1FD137CA0072D09F /* Devices.swift */,
+				3FAD00AF1FD137CA0072D09F /* Device.swift */,
 				3FAD00B11FD14B850072D09F /* DeviceLine.swift */,
+				3FA2000D1FDD345A002C8E08 /* Microwave.swift */,
+				3FA2000F1FDD3466002C8E08 /* CoffeeMachine.swift */,
+				3FA200111FDD3470002C8E08 /* Fridge.swift */,
+				3FA200131FDD3480002C8E08 /* FireAlarm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,13 +318,17 @@
 				3FAD00B61FD15D8B0072D09F /* DeviceTableViewCell.swift in Sources */,
 				3FAD00B81FD15FA70072D09F /* DeviceTableViewController.swift in Sources */,
 				3F3040201FDA8899000090E1 /* CoffeeMachineViewController.swift in Sources */,
+				3FA200121FDD3470002C8E08 /* Fridge.swift in Sources */,
 				3FCB28D41FD0435A009117A4 /* ViewController.swift in Sources */,
+				3FA2000E1FDD345A002C8E08 /* Microwave.swift in Sources */,
 				3F3040261FDA88E7000090E1 /* FireAlarmViewController.swift in Sources */,
 				3F3040241FDA88DB000090E1 /* MicrowaveViewController.swift in Sources */,
 				3FCB28D21FD0435A009117A4 /* AppDelegate.swift in Sources */,
 				3F3040221FDA88C5000090E1 /* FridgeViewController.swift in Sources */,
-				3FAD00B01FD137CA0072D09F /* Devices.swift in Sources */,
+				3FAD00B01FD137CA0072D09F /* Device.swift in Sources */,
+				3FA200141FDD3480002C8E08 /* FireAlarm.swift in Sources */,
 				3FAD00B21FD14B850072D09F /* DeviceLine.swift in Sources */,
+				3FA200101FDD3466002C8E08 /* CoffeeMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

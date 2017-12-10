@@ -6,7 +6,6 @@
 //  Copyright © 2017 hskl. All rights reserved.
 //
 
-import UIKit
 
 var myCoffeeMachine = CoffeeMachine(strength: 50, milkStatus: true, coffeeBeansStatus: true)
 var myFridge = Fridge(temperature: 3.0, automatedOrders: false)
