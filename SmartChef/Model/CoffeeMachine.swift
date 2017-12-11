@@ -26,19 +26,10 @@ class CoffeeMachine: Device {
         }
         strength = tmpStrength
     }
-    func getStrength() -> Int {
-        return strength
-    }
     func setMilkStatus(newMilkStatus: Bool) {
         milkStatus = newMilkStatus
     }
-    func getMilkStatus() -> Bool {
-        return milkStatus
-    }
     func setCoffeeBeansStatus(newCoffeeBeansStatus: Bool) {
         coffeeBeansStatus = newCoffeeBeansStatus
-    }
-    func getCoffeeBeansStatus() -> Bool {
-        return coffeeBeansStatus
     }
 }

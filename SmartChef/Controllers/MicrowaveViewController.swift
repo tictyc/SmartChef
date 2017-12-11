@@ -12,9 +12,30 @@ class MicrowaveViewController: UIViewController {
 
     var microwave : MicroWave?
     
+    @IBOutlet weak var statusSwitch: UISwitch!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var microWaveImage: UIImageView!
+    
+    @IBAction func statusSwitchAction(_ sender: UISwitch) {
+        if sender.isOn {
+            microwave?.setStatus(newStatus: true)
+            statusLabel.text = "Microwave is on"
+        } else {
+            microwave?.setStatus(newStatus: false)
+            statusLabel.text = "Microwave is off"
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        microWaveImage.image = microwave?.image
+        
+        if microwave?.status == true {
+            statusSwitch.isOn = true
+            statusLabel.text = "Microwave is on"
+        } else {
+            statusSwitch.isOn = false
+            statusLabel.text = "Microwave is off"
+        }
         // Do any additional setup after loading the view.
     }
 

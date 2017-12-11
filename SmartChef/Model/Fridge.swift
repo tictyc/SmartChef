@@ -25,9 +25,6 @@ class Fridge: Device {
         }
         temperature = tmpTemperature
     }
-    func getTemperature() -> Double {
-        return temperature
-    }
     func setAutomatedOrders(newAutomatedOrders: Bool) {
         automatedOrders = newAutomatedOrders
     }

@@ -19,13 +19,7 @@ class FireAlarm: Device {
     func setAlertTriggered(newAlertTriggered: Bool) {
         alertTriggered = newAlertTriggered
     }
-    func getAlertTriggered() -> Bool {
-        return alertTriggered
-    }
     func setCookingMode(newCookingMode: Bool) {
         cookingMode = newCookingMode
-    }
-    func getCookingMode() -> Bool {
-        return cookingMode
     }
 }

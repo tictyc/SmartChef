@@ -12,9 +12,31 @@ class FridgeViewController: UIViewController {
     
     var fridge : Fridge?
     
+    
+    @IBOutlet weak var statusSwitch: UISwitch!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var fridgeImage: UIImageView!
+    
+    @IBAction func statusSwitchAction(_ sender: UISwitch) {
+        if sender.isOn {
+            fridge?.setStatus(newStatus: true)
+            statusLabel.text = "Fridge is on"
+        } else {
+            fridge?.setStatus(newStatus: false)
+            statusLabel.text = "Fridge is off"
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fridgeImage.image = fridge?.image
+        
+        if fridge?.status == true {
+            statusSwitch.isOn = true
+            statusLabel.text = "Fridge is on"
+        } else {
+            statusSwitch.isOn = false
+            statusLabel.text = "Fridge is off"
+        }
         // Do any additional setup after loading the view.
     }
 

@@ -51,6 +51,9 @@ class DeviceTableViewController: UITableViewController {
         } else if device.name == "Microwave" {
             selectedDevice = device as! MicroWave
             performSegue(withIdentifier: "ShowMicrowaveDetail", sender: nil)
+        } else if device.name == "Cooking Pot" {
+            selectedDevice = device as! CookingPot
+            performSegue(withIdentifier: "ShowCookingPotDetail", sender: nil)
         }
     }
     
@@ -67,6 +70,9 @@ class DeviceTableViewController: UITableViewController {
         } else if segue.identifier == "ShowFireAlarmDetail" {
             let deviceDetailVC = segue.destination as! FireAlarmViewController
             deviceDetailVC.fireAlarm = selectedDevice as? FireAlarm
+        } else if segue.identifier == "ShowCookingPotDetail" {
+            let deviceDetailVC = segue.destination as! CookingPotViewController
+            deviceDetailVC.pot = selectedDevice as? CookingPot
         }
     }
 }

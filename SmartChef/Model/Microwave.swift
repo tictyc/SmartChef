@@ -34,20 +34,11 @@ class MicroWave: Device {
     func setWatt(newWatt:MicrowaveWatt) {
         watt = newWatt
     }
-    func getWatt() -> MicrowaveWatt {
-        return watt
-    }
     func setMode(newMode:MicrowaveMode) {
         mode = newMode
     }
-    func getMode() -> MicrowaveMode {
-        return mode
-    }
     func setTimer(newTime:Double) {
         timer = newTime
-    }
-    func getTimer() -> Double {
-        return timer
     }
 }
 

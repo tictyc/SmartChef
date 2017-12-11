@@ -31,7 +31,7 @@ class CoffeeMachineViewController: UIViewController {
         super.viewDidLoad()
         cmImage.image = coffeeMachine?.image
         
-        if coffeeMachine?.getStatus() == true {
+        if coffeeMachine?.status == true {
             statusSwitch.isOn = true
             statusLabel.text = "Coffee Machine is on"
         } else {

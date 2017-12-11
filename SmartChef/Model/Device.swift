@@ -25,12 +25,6 @@ class Device {
     func setStatus (newStatus: Bool) {
         status = newStatus
     }
-    func getStatus () -> Bool {
-        return status
-    }
-    func getName () -> String {
-        return name
-    }
 }
 
 
