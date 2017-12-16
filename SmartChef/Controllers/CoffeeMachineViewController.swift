@@ -13,6 +13,9 @@ class CoffeeMachineViewController: UIViewController {
     @IBOutlet weak var cmImage: UIImageView!
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var brewButton: UIButton!
+    @IBOutlet weak var brewProgress: UIProgressView!
+    
     
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
@@ -24,6 +27,12 @@ class CoffeeMachineViewController: UIViewController {
             }
     }
     
+    @IBAction func brewButtonPressed(_ sender: Any) {
+        brewProgress.isHidden = false
+        
+        
+        coffeeMachine?.coffeeCounter += 1
+    }
     
     var coffeeMachine : CoffeeMachine?
     

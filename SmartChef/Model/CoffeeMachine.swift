@@ -12,11 +12,13 @@ class CoffeeMachine: Device {
     var strength: Int
     var milkStatus: Bool
     var coffeeBeansStatus: Bool
+    var coffeeCounter : Int
     
     init(strength: Int, milkStatus: Bool, coffeeBeansStatus: Bool) {
         self.strength = strength
         self.milkStatus = milkStatus
         self.coffeeBeansStatus = coffeeBeansStatus
+        self.coffeeCounter = 0
         super.init(name: "Coffee Machine", image: "CoffeeMachine", status: false)
     }
     func setStrength(newStrength: Int) {
