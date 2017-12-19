@@ -16,13 +16,16 @@ class CookingPotViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var cookingPotImage: UIImageView!
     
+    let onString = "Your Cooking Pot is on."
+    let offString = "Your Cooking Pot is off."
+    
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
             pot?.status = true
-            statusLabel.text = "Cooking Pot is on"
+            statusLabel.text = onString
         } else {
             pot?.status = true
-            statusLabel.text = "Cooking Pot is off"
+            statusLabel.text = offString
         }
     }
     override func viewDidLoad() {
@@ -31,10 +34,10 @@ class CookingPotViewController: UIViewController {
         
         if pot?.status == true {
             statusSwitch.isOn = true
-            statusLabel.text = "Cooking Pot is on"
+            statusLabel.text = onString
         } else {
             statusSwitch.isOn = false
-            statusLabel.text = "Cooking Pot is off"
+            statusLabel.text = offString
         }
         // Do any additional setup after loading the view.
     }

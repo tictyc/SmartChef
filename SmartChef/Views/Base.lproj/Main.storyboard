@@ -274,10 +274,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fridgeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-5h-nbP">
+                                <rect key="frame" x="0.0" y="113" width="320" height="406"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O06-Pc-NID">
                                 <rect key="frame" x="15" y="273" width="225" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rjs-vn-D1O">
@@ -299,12 +302,16 @@
                         <color key="backgroundColor" red="1" green="0.8784313725490196" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="O06-Pc-NID" firstAttribute="top" secondItem="oHe-9m-3TV" secondAttribute="bottom" constant="25" id="1N8-8C-Pmz"/>
+                            <constraint firstItem="sIA-5h-nbP" firstAttribute="leading" secondItem="lCB-nu-ued" secondAttribute="leading" id="2H0-PY-xUk"/>
                             <constraint firstItem="Rjs-vn-D1O" firstAttribute="centerY" secondItem="O06-Pc-NID" secondAttribute="centerY" id="3mj-ue-hwA"/>
                             <constraint firstItem="Rjs-vn-D1O" firstAttribute="trailing" secondItem="O06-Pc-NID" secondAttribute="trailing" constant="65" id="9MZ-Fx-IZs"/>
                             <constraint firstItem="oHe-9m-3TV" firstAttribute="leading" secondItem="lCB-nu-ued" secondAttribute="leading" constant="100" id="Dhz-kc-Jjq"/>
                             <constraint firstItem="lCB-nu-ued" firstAttribute="trailing" secondItem="oHe-9m-3TV" secondAttribute="trailing" constant="100" id="Keh-pU-6V6"/>
                             <constraint firstItem="oHe-9m-3TV" firstAttribute="top" secondItem="lCB-nu-ued" secondAttribute="top" constant="15" id="PKz-iv-wD2"/>
                             <constraint firstItem="lCB-nu-ued" firstAttribute="trailing" secondItem="Rjs-vn-D1O" secondAttribute="trailing" constant="15" id="cqK-ur-xyW"/>
+                            <constraint firstItem="sIA-5h-nbP" firstAttribute="top" secondItem="lCB-nu-ued" secondAttribute="top" id="mUS-Dv-BFj"/>
+                            <constraint firstItem="sIA-5h-nbP" firstAttribute="bottom" secondItem="lCB-nu-ued" secondAttribute="bottom" id="neN-fh-fHX"/>
+                            <constraint firstItem="sIA-5h-nbP" firstAttribute="trailing" secondItem="lCB-nu-ued" secondAttribute="trailing" id="rAX-cm-iPH"/>
                             <constraint firstItem="O06-Pc-NID" firstAttribute="leading" secondItem="34N-Ha-qAk" secondAttribute="leading" constant="15" id="weN-SN-NwD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lCB-nu-ued"/>
@@ -317,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eA8-yq-Yjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="886"/>
+            <point key="canvasLocation" x="888.75" y="885.21126760563379"/>
         </scene>
         <!--Cooking Pot-->
         <scene sceneID="g3s-Jt-JXn">
@@ -576,5 +583,6 @@
         <image name="Manufacturers" width="24" height="24"/>
         <image name="Settings" width="24" height="24"/>
         <image name="coffeeMachineBackground" width="1000" height="1500"/>
+        <image name="fridgeBackground" width="1000" height="1500"/>
     </resources>
 </document>

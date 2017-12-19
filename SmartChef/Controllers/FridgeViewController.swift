@@ -17,13 +17,17 @@ class FridgeViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var fridgeImage: UIImageView!
     
+    let onString = "Your Fridge is on."
+    let offString = "Your Fridge is off."
+    
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
             fridge?.status = true
-            statusLabel.text = "Fridge is on"
+            statusLabel.text = onString
+            
         } else {
             fridge?.status = true
-            statusLabel.text = "Fridge is off"
+            statusLabel.text = offString
         }
     }
     override func viewDidLoad() {
@@ -32,10 +36,10 @@ class FridgeViewController: UIViewController {
         
         if fridge?.status == true {
             statusSwitch.isOn = true
-            statusLabel.text = "Fridge is on"
+            statusLabel.text = onString
         } else {
             statusSwitch.isOn = false
-            statusLabel.text = "Fridge is off"
+            statusLabel.text = offString
         }
         // Do any additional setup after loading the view.
     }

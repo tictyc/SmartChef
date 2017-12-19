@@ -16,13 +16,16 @@ class FireAlarmViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var fireAlarmImage: UIImageView!
     
+    let onString = "Your Fire Alarm is on."
+    let offString = "Your Fire Alarm is off."
+    
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
             fireAlarm?.status = true
-            statusLabel.text = "Fire Alarm is on"
+            statusLabel.text = onString
         } else {
             fireAlarm?.status = true
-            statusLabel.text = "Fire Alarm is off"
+            statusLabel.text = offString
         }
     }
     override func viewDidLoad() {
@@ -31,10 +34,10 @@ class FireAlarmViewController: UIViewController {
         
         if fireAlarm?.status == true {
             statusSwitch.isOn = true
-            statusLabel.text = "Fire Alarm is on"
+            statusLabel.text = onString
         } else {
             statusSwitch.isOn = false
-            statusLabel.text = "Fire Alarm is off"
+            statusLabel.text = offString
         }
         // Do any additional setup after loading the view.
     }

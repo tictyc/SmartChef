@@ -18,14 +18,17 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var strengthSlider: UISlider!
     @IBOutlet weak var coffeePickerView: UIPickerView!
     
+    let onString = "Your Coffee Machine is on."
+    let offString = "Your Coffee Machine is off."
+    
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
             coffeeMachine?.status = true
-            statusLabel.text = "Coffee Machine is on"
+            statusLabel.text = onString
             toggleInteractionChange()
         } else {
             coffeeMachine?.status = false
-            statusLabel.text = "Coffee Machine is off"
+            statusLabel.text = offString
             toggleInteractionChange()
             }
     }
@@ -50,11 +53,11 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         
         if coffeeMachine?.status == true {
             statusSwitch.isOn = true
-            statusLabel.text = "Coffee Machine is on"
+            statusLabel.text = onString
             toggleInteractionChange()
         } else {
             statusSwitch.isOn = false
-            statusLabel.text = "Coffee Machine is off"
+            statusLabel.text = offString
             toggleInteractionChange()
         }
         
