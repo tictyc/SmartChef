@@ -25,11 +25,11 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         if sender.isOn {
             coffeeMachine?.status = true
             statusLabel.text = onString
-            toggleInteractionChange()
+            toggleInteractionOn()
         } else {
             coffeeMachine?.status = false
             statusLabel.text = offString
-            toggleInteractionChange()
+            toggleInteractionOff()
             }
     }
     
@@ -54,12 +54,12 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         if coffeeMachine?.status == true {
             statusSwitch.isOn = true
             statusLabel.text = onString
-            toggleInteractionChange()
+            toggleInteractionOn()
         } else {
             statusSwitch.isOn = false
             statusLabel.text = offString
-            toggleInteractionChange()
-        }
+            toggleInteractionOff()
+            }
         
         
         // Do any additional setup after loading the view.
@@ -91,10 +91,16 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         return NSAttributedString(string: pickerCoffeeDataArray[row], attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
     
-    func toggleInteractionChange (){
-        coffeePickerView.isUserInteractionEnabled = !coffeePickerView.isUserInteractionEnabled
-        strengthSlider.isEnabled = !strengthSlider.isEnabled
-        brewButton.isEnabled = !brewButton.isEnabled
+    func toggleInteractionOn (){
+        coffeePickerView.isUserInteractionEnabled = true
+        strengthSlider.isEnabled = true
+        brewButton.isEnabled = true
+    }
+    
+    func toggleInteractionOff (){
+        coffeePickerView.isUserInteractionEnabled = false
+        strengthSlider.isEnabled = false
+        brewButton.isEnabled = false
     }
     
 
