@@ -18,10 +18,10 @@ class CookingPotViewController: UIViewController {
     
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
-            pot?.setStatus(newStatus: true)
+            pot?.status = true
             statusLabel.text = "Cooking Pot is on"
         } else {
-            pot?.setStatus(newStatus: false)
+            pot?.status = true
             statusLabel.text = "Cooking Pot is off"
         }
     }

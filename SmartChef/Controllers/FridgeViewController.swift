@@ -19,10 +19,10 @@ class FridgeViewController: UIViewController {
     
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
-            fridge?.setStatus(newStatus: true)
+            fridge?.status = true
             statusLabel.text = "Fridge is on"
         } else {
-            fridge?.setStatus(newStatus: false)
+            fridge?.status = true
             statusLabel.text = "Fridge is off"
         }
     }

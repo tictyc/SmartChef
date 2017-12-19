@@ -18,10 +18,10 @@ class FireAlarmViewController: UIViewController {
     
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
-            fireAlarm?.setStatus(newStatus: true)
+            fireAlarm?.status = true
             statusLabel.text = "Fire Alarm is on"
         } else {
-            fireAlarm?.setStatus(newStatus: false)
+            fireAlarm?.status = true
             statusLabel.text = "Fire Alarm is off"
         }
     }

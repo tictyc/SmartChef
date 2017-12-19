@@ -18,10 +18,10 @@ class MicrowaveViewController: UIViewController {
     
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
-            microwave?.setStatus(newStatus: true)
+            microwave?.status = true
             statusLabel.text = "Microwave is on"
         } else {
-            microwave?.setStatus(newStatus: false)
+            microwave?.status = true
             statusLabel.text = "Microwave is off"
         }
     }

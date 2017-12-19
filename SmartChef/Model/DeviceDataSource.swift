@@ -7,7 +7,7 @@
 //
 
 
-var myCoffeeMachine = CoffeeMachine(strength: 50, milkStatus: true, coffeeBeansStatus: true)
+var myCoffeeMachine = CoffeeMachine(strength: 50, milkStatus: true, coffeeBeansStatus: true, type: CoffeeType.Coffee)
 var myFridge = Fridge(temperature: 3.0, automatedOrders: false)
 var myMicroWave = MicroWave(watt: MicrowaveWatt.A, mode: MicrowaveMode.Microwaving, timer: 0.0)
 var myFireAlarm = FireAlarm(alertTriggered: false, cookingMode: false)

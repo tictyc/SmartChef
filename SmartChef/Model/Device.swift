@@ -22,9 +22,6 @@ class Device {
             self.image = UIImage(named: "default")!
         }
     }
-    func setStatus (newStatus: Bool) {
-        status = newStatus
-    }
 }
 
 
