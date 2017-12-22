@@ -24,7 +24,7 @@ class MicrowaveViewController: UIViewController {
             microwave?.status = true
             statusLabel.text = onString
         } else {
-            microwave?.status = true
+            microwave?.status = false
             statusLabel.text = offString
         }
     }

@@ -31,14 +31,5 @@ class MicroWave: Device {
         self.timer = timer
         super.init(name: "Microwave", image: "Microwave", status: false)
     }
-    func setWatt(newWatt:MicrowaveWatt) {
-        watt = newWatt
-    }
-    func setMode(newMode:MicrowaveMode) {
-        mode = newMode
-    }
-    func setTimer(newTime:Double) {
-        timer = newTime
-    }
 }
 
