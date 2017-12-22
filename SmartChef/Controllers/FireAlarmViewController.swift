@@ -14,7 +14,6 @@ class FireAlarmViewController: UIViewController {
     
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var fireAlarmImage: UIImageView!
     
     let onString = "Your Fire Alarm is on."
     let offString = "Your Fire Alarm is off."
@@ -30,7 +29,6 @@ class FireAlarmViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        fireAlarmImage.image = fireAlarm?.image
         
         if fireAlarm?.status == true {
             statusSwitch.isOn = true

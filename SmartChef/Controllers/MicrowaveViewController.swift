@@ -10,11 +10,11 @@ import UIKit
 
 class MicrowaveViewController: UIViewController {
 
-    var microwave : MicroWave?
+    var microwave : Microwave?
     
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var microWaveImage: UIImageView!
+    @IBOutlet weak var countdownPicker: UIDatePicker!
     
     let onString = "Your Microwave is on."
     let offString = "Your Microwave is off."
@@ -30,7 +30,7 @@ class MicrowaveViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        microWaveImage.image = microwave?.image
+        
         
         if microwave?.status == true {
             statusSwitch.isOn = true
@@ -46,7 +46,6 @@ class MicrowaveViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

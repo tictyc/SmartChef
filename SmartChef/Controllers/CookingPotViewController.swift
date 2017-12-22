@@ -14,7 +14,6 @@ class CookingPotViewController: UIViewController {
     
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var cookingPotImage: UIImageView!
     
     let onString = "Your Cooking Pot is on."
     let offString = "Your Cooking Pot is off."
@@ -30,7 +29,6 @@ class CookingPotViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cookingPotImage.image = pot?.image
         
         if pot?.status == true {
             statusSwitch.isOn = true

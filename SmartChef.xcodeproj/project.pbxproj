@@ -11,13 +11,19 @@
 		3F3040221FDA88C5000090E1 /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3040211FDA88C5000090E1 /* FridgeViewController.swift */; };
 		3F3040241FDA88DB000090E1 /* MicrowaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */; };
 		3F3040261FDA88E7000090E1 /* FireAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */; };
-		3FA2000E1FDD345A002C8E08 /* Microwave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2000D1FDD345A002C8E08 /* Microwave.swift */; };
-		3FA200101FDD3466002C8E08 /* CoffeeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2000F1FDD3466002C8E08 /* CoffeeMachine.swift */; };
-		3FA200121FDD3470002C8E08 /* Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA200111FDD3470002C8E08 /* Fridge.swift */; };
-		3FA200141FDD3480002C8E08 /* FireAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA200131FDD3480002C8E08 /* FireAlarm.swift */; };
-		3FA736441FDEC9B200E07A30 /* CookingPot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA736431FDEC9B200E07A30 /* CookingPot.swift */; };
+		3F5AA51F1FED8CAB004C4FF7 /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA51D1FED8CAB004C4FF7 /* Device+CoreDataClass.swift */; };
+		3F5AA5201FED8CAB004C4FF7 /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA51E1FED8CAB004C4FF7 /* Device+CoreDataProperties.swift */; };
+		3F5AA5241FED8CE4004C4FF7 /* CoffeeMachine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5221FED8CE4004C4FF7 /* CoffeeMachine+CoreDataClass.swift */; };
+		3F5AA5251FED8CE4004C4FF7 /* CoffeeMachine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5231FED8CE4004C4FF7 /* CoffeeMachine+CoreDataProperties.swift */; };
+		3F5AA5281FED8CFA004C4FF7 /* CookingPot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5261FED8CFA004C4FF7 /* CookingPot+CoreDataClass.swift */; };
+		3F5AA5291FED8CFA004C4FF7 /* CookingPot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5271FED8CFA004C4FF7 /* CookingPot+CoreDataProperties.swift */; };
+		3F5AA52C1FED8D2C004C4FF7 /* FireAlarm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA52A1FED8D2C004C4FF7 /* FireAlarm+CoreDataClass.swift */; };
+		3F5AA52D1FED8D2C004C4FF7 /* FireAlarm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA52B1FED8D2C004C4FF7 /* FireAlarm+CoreDataProperties.swift */; };
+		3F5AA5301FED8D43004C4FF7 /* Fridge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA52E1FED8D43004C4FF7 /* Fridge+CoreDataClass.swift */; };
+		3F5AA5311FED8D43004C4FF7 /* Fridge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA52F1FED8D43004C4FF7 /* Fridge+CoreDataProperties.swift */; };
+		3F5AA5341FED8D56004C4FF7 /* Microwave+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5321FED8D56004C4FF7 /* Microwave+CoreDataClass.swift */; };
+		3F5AA5351FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5331FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift */; };
 		3FA736461FDECD3100E07A30 /* CookingPotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */; };
-		3FAD00B01FD137CA0072D09F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00AF1FD137CA0072D09F /* Device.swift */; };
 		3FAD00B21FD14B850072D09F /* DeviceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B11FD14B850072D09F /* DeviceDataSource.swift */; };
 		3FAD00B61FD15D8B0072D09F /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B51FD15D8B0072D09F /* DeviceTableViewCell.swift */; };
 		3FAD00B81FD15FA70072D09F /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */; };
@@ -27,6 +33,8 @@
 		3FCB28D91FD0435A009117A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCB28D81FD0435A009117A4 /* Assets.xcassets */; };
 		3FCB28E71FD0435B009117A4 /* SmartChefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB28E61FD0435B009117A4 /* SmartChefTests.swift */; };
 		3FCB28F21FD0435B009117A4 /* SmartChefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB28F11FD0435B009117A4 /* SmartChefUITests.swift */; };
+		3FD4F60E1FED7F53008F5306 /* SmartChef.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4F60C1FED7F53008F5306 /* SmartChef.xcdatamodeld */; };
+		3FD4F6141FED8124008F5306 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4F6131FED8124008F5306 /* PersistenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +59,19 @@
 		3F3040211FDA88C5000090E1 /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
 		3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrowaveViewController.swift; sourceTree = "<group>"; };
 		3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAlarmViewController.swift; sourceTree = "<group>"; };
-		3FA2000D1FDD345A002C8E08 /* Microwave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microwave.swift; sourceTree = "<group>"; };
-		3FA2000F1FDD3466002C8E08 /* CoffeeMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMachine.swift; sourceTree = "<group>"; };
-		3FA200111FDD3470002C8E08 /* Fridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fridge.swift; sourceTree = "<group>"; };
-		3FA200131FDD3480002C8E08 /* FireAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireAlarm.swift; sourceTree = "<group>"; };
-		3FA736431FDEC9B200E07A30 /* CookingPot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingPot.swift; sourceTree = "<group>"; };
+		3F5AA51D1FED8CAB004C4FF7 /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5AA51E1FED8CAB004C4FF7 /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5AA5221FED8CE4004C4FF7 /* CoffeeMachine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoffeeMachine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5AA5231FED8CE4004C4FF7 /* CoffeeMachine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoffeeMachine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5AA5261FED8CFA004C4FF7 /* CookingPot+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CookingPot+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5AA5271FED8CFA004C4FF7 /* CookingPot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CookingPot+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5AA52A1FED8D2C004C4FF7 /* FireAlarm+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireAlarm+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5AA52B1FED8D2C004C4FF7 /* FireAlarm+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireAlarm+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5AA52E1FED8D43004C4FF7 /* Fridge+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fridge+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5AA52F1FED8D43004C4FF7 /* Fridge+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fridge+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F5AA5321FED8D56004C4FF7 /* Microwave+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Microwave+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F5AA5331FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Microwave+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingPotViewController.swift; sourceTree = "<group>"; };
-		3FAD00AF1FD137CA0072D09F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		3FAD00B11FD14B850072D09F /* DeviceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataSource.swift; sourceTree = "<group>"; };
 		3FAD00B51FD15D8B0072D09F /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +87,8 @@
 		3FCB28ED1FD0435B009117A4 /* SmartChefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartChefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCB28F11FD0435B009117A4 /* SmartChefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartChefUITests.swift; sourceTree = "<group>"; };
 		3FCB28F31FD0435B009117A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD4F60D1FED7F53008F5306 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		3FD4F6131FED8124008F5306 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistenceService.swift; path = ../../../../Downloads/PersistenceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,16 +116,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F5AA5211FED8CBB004C4FF7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3F5AA5321FED8D56004C4FF7 /* Microwave+CoreDataClass.swift */,
+				3F5AA5331FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift */,
+				3F5AA52E1FED8D43004C4FF7 /* Fridge+CoreDataClass.swift */,
+				3F5AA52F1FED8D43004C4FF7 /* Fridge+CoreDataProperties.swift */,
+				3F5AA52A1FED8D2C004C4FF7 /* FireAlarm+CoreDataClass.swift */,
+				3F5AA52B1FED8D2C004C4FF7 /* FireAlarm+CoreDataProperties.swift */,
+				3F5AA5261FED8CFA004C4FF7 /* CookingPot+CoreDataClass.swift */,
+				3F5AA5271FED8CFA004C4FF7 /* CookingPot+CoreDataProperties.swift */,
+				3F5AA5221FED8CE4004C4FF7 /* CoffeeMachine+CoreDataClass.swift */,
+				3F5AA5231FED8CE4004C4FF7 /* CoffeeMachine+CoreDataProperties.swift */,
+				3F5AA51D1FED8CAB004C4FF7 /* Device+CoreDataClass.swift */,
+				3F5AA51E1FED8CAB004C4FF7 /* Device+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		3FAD00AE1FD137940072D09F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FAD00AF1FD137CA0072D09F /* Device.swift */,
+				3F5AA5211FED8CBB004C4FF7 /* CoreData */,
+				3FD4F60C1FED7F53008F5306 /* SmartChef.xcdatamodeld */,
 				3FAD00B11FD14B850072D09F /* DeviceDataSource.swift */,
-				3FA2000D1FDD345A002C8E08 /* Microwave.swift */,
-				3FA2000F1FDD3466002C8E08 /* CoffeeMachine.swift */,
-				3FA200111FDD3470002C8E08 /* Fridge.swift */,
-				3FA200131FDD3480002C8E08 /* FireAlarm.swift */,
-				3FA736431FDEC9B200E07A30 /* CookingPot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +195,7 @@
 				3FAD00B31FD1577A0072D09F /* Controllers */,
 				3FAD00AE1FD137940072D09F /* Model */,
 				3FCB28D11FD0435A009117A4 /* AppDelegate.swift */,
+				3FD4F6131FED8124008F5306 /* PersistenceService.swift */,
 				3FCB28D81FD0435A009117A4 /* Assets.xcassets */,
 				3FCB28DD1FD0435A009117A4 /* Info.plist */,
 			);
@@ -324,19 +356,27 @@
 				3FAD00B61FD15D8B0072D09F /* DeviceTableViewCell.swift in Sources */,
 				3FAD00B81FD15FA70072D09F /* DeviceTableViewController.swift in Sources */,
 				3F3040201FDA8899000090E1 /* CoffeeMachineViewController.swift in Sources */,
-				3FA200121FDD3470002C8E08 /* Fridge.swift in Sources */,
+				3FD4F6141FED8124008F5306 /* PersistenceService.swift in Sources */,
 				3FCB28D41FD0435A009117A4 /* ViewController.swift in Sources */,
 				3FA736461FDECD3100E07A30 /* CookingPotViewController.swift in Sources */,
-				3FA2000E1FDD345A002C8E08 /* Microwave.swift in Sources */,
 				3F3040261FDA88E7000090E1 /* FireAlarmViewController.swift in Sources */,
-				3FA736441FDEC9B200E07A30 /* CookingPot.swift in Sources */,
+				3F5AA5241FED8CE4004C4FF7 /* CoffeeMachine+CoreDataClass.swift in Sources */,
+				3FD4F60E1FED7F53008F5306 /* SmartChef.xcdatamodeld in Sources */,
 				3F3040241FDA88DB000090E1 /* MicrowaveViewController.swift in Sources */,
+				3F5AA52C1FED8D2C004C4FF7 /* FireAlarm+CoreDataClass.swift in Sources */,
+				3F5AA5311FED8D43004C4FF7 /* Fridge+CoreDataProperties.swift in Sources */,
 				3FCB28D21FD0435A009117A4 /* AppDelegate.swift in Sources */,
+				3F5AA5341FED8D56004C4FF7 /* Microwave+CoreDataClass.swift in Sources */,
+				3F5AA5281FED8CFA004C4FF7 /* CookingPot+CoreDataClass.swift in Sources */,
 				3F3040221FDA88C5000090E1 /* FridgeViewController.swift in Sources */,
-				3FAD00B01FD137CA0072D09F /* Device.swift in Sources */,
-				3FA200141FDD3480002C8E08 /* FireAlarm.swift in Sources */,
 				3FAD00B21FD14B850072D09F /* DeviceDataSource.swift in Sources */,
-				3FA200101FDD3466002C8E08 /* CoffeeMachine.swift in Sources */,
+				3F5AA5201FED8CAB004C4FF7 /* Device+CoreDataProperties.swift in Sources */,
+				3F5AA5251FED8CE4004C4FF7 /* CoffeeMachine+CoreDataProperties.swift in Sources */,
+				3F5AA51F1FED8CAB004C4FF7 /* Device+CoreDataClass.swift in Sources */,
+				3F5AA52D1FED8D2C004C4FF7 /* FireAlarm+CoreDataProperties.swift in Sources */,
+				3F5AA5291FED8CFA004C4FF7 /* CookingPot+CoreDataProperties.swift in Sources */,
+				3F5AA5301FED8D43004C4FF7 /* Fridge+CoreDataClass.swift in Sources */,
+				3F5AA5351FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +660,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3FD4F60C1FED7F53008F5306 /* SmartChef.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FD4F60D1FED7F53008F5306 /* Model.xcdatamodel */,
+			);
+			currentVersion = 3FD4F60D1FED7F53008F5306 /* Model.xcdatamodel */;
+			path = SmartChef.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3FCB28C61FD04359009117A4 /* Project object */;
 }

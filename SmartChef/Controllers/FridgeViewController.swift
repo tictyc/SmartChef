@@ -15,7 +15,6 @@ class FridgeViewController: UIViewController {
     
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var fridgeImage: UIImageView!
     
     let onString = "Your Fridge is on."
     let offString = "Your Fridge is off."
@@ -32,7 +31,6 @@ class FridgeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        fridgeImage.image = fridge?.image
         
         if fridge?.status == true {
             statusSwitch.isOn = true

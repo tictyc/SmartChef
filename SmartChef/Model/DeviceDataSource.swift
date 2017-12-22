@@ -7,11 +7,63 @@
 //
 
 
-var myCoffeeMachine = CoffeeMachine(strength: 50, milkStatus: true, coffeeBeansStatus: true, type: CoffeeType.Coffee)
-var myFridge = Fridge(temperature: 3.0, automatedOrders: false)
-var myMicroWave = MicroWave(watt: MicrowaveWatt.A, mode: MicrowaveMode.Microwaving, timer: 0.0)
-var myFireAlarm = FireAlarm(alertTriggered: false, cookingMode: false)
-var myCookingPot = CookingPot(heat: CookingPotHeat.middle)
+//var myCoffeeMachine = CoffeeMachine(strength: 50, milkStatus: true, coffeeBeansStatus: true, type: CoffeeType.Coffee)
 
-let devices: [Device] = [myCoffeeMachine, myFridge, myMicroWave, myFireAlarm, myCookingPot]
+func initializeDevices() -> [Device]{
+    let myCoffeeMachine = CoffeeMachine(context: PersistenceService.context)
+    myCoffeeMachine.name = "Coffee Machine"
+    myCoffeeMachine.image = "CoffeeMachine"
+    myCoffeeMachine.status = false
+    myCoffeeMachine.milkLevel = 100
+    myCoffeeMachine.coffeeBeansLevel = 100
+    myCoffeeMachine.coffeeType = "Coffee"
+    myCoffeeMachine.strength = 50
+    
+    let myMicrowave = Microwave(context: PersistenceService.context)
+    myMicrowave.name = "Microwave"
+    myMicrowave.image = "Microwave"
+    myMicrowave.status = false
+    myMicrowave.watt = 400
+    myMicrowave.mode = "microwave"
+    myMicrowave.timer = 10.0
+    
+    
+    let myFireAlarm = FireAlarm(context: PersistenceService.context)
+    myFireAlarm.name = "Fire Alarm"
+    myFireAlarm.image = "FireAlarm"
+    myFireAlarm.status = true
+    myFireAlarm.alertTriggered = false
+    myFireAlarm.cookingMode = false
+    
+    let myFridge = Fridge(context: PersistenceService.context)
+    myFridge.name = "Fridge"
+    myFridge.image = "Fridge"
+    myFridge.status = true
+    myFridge.temperature = 4.0
+    myFridge.automatedOrders = false
+    
+    
+    let myCookingPot = CookingPot(context: PersistenceService.context)
+    myCookingPot.name = "Cooking Pot"
+    myCookingPot.image = "CookingPot"
+    myCookingPot.status = false
+    myCookingPot.heat = 60
+    
+    
+    
+    PersistenceService.saveContext()
+    let devices: [Device] = [myCoffeeMachine, myFridge, myMicrowave, myFireAlarm, myCookingPot]
+    return devices
+}
+
+let devices = initializeDevices()
+
+
+
+//var myFridge = Fridge(temperature: 3.0, automatedOrders: false)
+//var myMicroWave = MicroWave(watt: MicrowaveWatt.A, mode: MicrowaveMode.Microwaving, timer: 0.0)
+//var myFireAlarm = FireAlarm(alertTriggered: false, cookingMode: false)
+//var myCookingPot = CookingPot(heat: CookingPotHeat.middle)
+
+//let devices: [Device] = [myCoffeeMachine, myFridge, myMicroWave, myFireAlarm, myCookingPot]
 

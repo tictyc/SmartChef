@@ -9,9 +9,10 @@
 import UIKit
 
 class DeviceTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
     }
     
@@ -49,7 +50,7 @@ class DeviceTableViewController: UITableViewController {
             selectedDevice = device as! Fridge
             performSegue(withIdentifier: "ShowFridgeDetail", sender: nil)
         } else if device.name == "Microwave" {
-            selectedDevice = device as! MicroWave
+            selectedDevice = device as! Microwave
             performSegue(withIdentifier: "ShowMicrowaveDetail", sender: nil)
         } else if device.name == "Cooking Pot" {
             selectedDevice = device as! CookingPot
@@ -63,7 +64,7 @@ class DeviceTableViewController: UITableViewController {
             deviceDetailVC.coffeeMachine = selectedDevice as? CoffeeMachine
         } else if segue.identifier == "ShowMicrowaveDetail" {
             let deviceDetailVC = segue.destination as! MicrowaveViewController
-            deviceDetailVC.microwave = selectedDevice as? MicroWave
+            deviceDetailVC.microwave = selectedDevice as? Microwave
         } else if segue.identifier == "ShowFridgeDetail" {
             let deviceDetailVC = segue.destination as! FridgeViewController
             deviceDetailVC.fridge = selectedDevice as? Fridge

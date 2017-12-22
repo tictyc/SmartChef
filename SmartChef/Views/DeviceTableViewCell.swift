@@ -20,7 +20,7 @@ class DeviceTableViewCell: UITableViewCell {
         }
     }
     func updateUI() {
-        deviceImageView.image = device?.image
+        deviceImageView.image = UIImage(named: device!.image!)
         deviceNameLabel.text = device?.name
     }
 
