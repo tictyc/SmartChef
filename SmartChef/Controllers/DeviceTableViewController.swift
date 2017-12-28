@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class DeviceTableViewController: UITableViewController {
+    
+    var devices : [Device]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let fetchRequest : NSFetchRequest<Device> = Device.fetchRequest()
+        
+        do {
+            let devices = try PersistenceService.context.fetch(fetchRequest)
+            self.devices = devices
+            self.tableView.reloadData()
+        } catch {
+            print()
+        }
         
     }
     
@@ -39,20 +51,20 @@ class DeviceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let device = devices[indexPath.row]
         
-        if device.name == "Fire Alarm" {
+        if device is FireAlarm {
             selectedDevice = device as! FireAlarm
             performSegue(withIdentifier: "ShowFireAlarmDetail", sender: nil)
         }
-        else if device.name == "Coffee Machine" {
+        else if device is CoffeeMachine {
             selectedDevice = device as! CoffeeMachine
             performSegue(withIdentifier: "ShowCoffeeMachineDetail", sender: nil)
-        } else if device.name == "Fridge" {
+        } else if device is Fridge {
             selectedDevice = device as! Fridge
             performSegue(withIdentifier: "ShowFridgeDetail", sender: nil)
-        } else if device.name == "Microwave" {
+        } else if device is Microwave {
             selectedDevice = device as! Microwave
             performSegue(withIdentifier: "ShowMicrowaveDetail", sender: nil)
-        } else if device.name == "Cooking Pot" {
+        } else if device is CookingPot {
             selectedDevice = device as! CookingPot
             performSegue(withIdentifier: "ShowCookingPotDetail", sender: nil)
         }
@@ -77,3 +89,4 @@ class DeviceTableViewController: UITableViewController {
         }
     }
 }
+

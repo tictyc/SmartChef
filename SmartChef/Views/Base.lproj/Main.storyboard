@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ux9-xt-ex7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ux9-xt-ex7">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +17,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Heo-ED-HQi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.97254901960784312" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeviceCell" rowHeight="50" id="f1g-Kg-zgw" customClass="DeviceTableViewCell" customModule="SmartChef" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="50"/>
@@ -51,7 +51,6 @@
                                         <constraint firstItem="hW5-EE-G4g" firstAttribute="leading" secondItem="890-Oc-0sc" secondAttribute="leading" constant="50" id="kHW-aC-M91"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="deviceImageView" destination="890-Oc-0sc" id="fpw-Q3-mjY"/>
                                     <outlet property="deviceNameLabel" destination="hW5-EE-G4g" id="nHF-Ie-zqz"/>
@@ -64,7 +63,7 @@
                             <outlet property="delegate" destination="oMf-w4-UBR" id="qfV-Hs-RFH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Kitchen Devices" id="EPJ-1x-bnc"/>
+                    <navigationItem key="navigationItem" title="Your Kitchen" id="EPJ-1x-bnc"/>
                     <connections>
                         <segue destination="Ubv-D6-uNt" kind="show" identifier="ShowMicrowaveDetail" id="gQC-Da-J0z"/>
                         <segue destination="0w3-qC-2td" kind="show" identifier="ShowFridgeDetail" id="6wB-xY-Usx"/>
@@ -115,9 +114,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Prx-MB-UuJ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Brew me a coffee"/>
+                                                <state key="normal" title="Brew me a Coffee"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -129,6 +128,9 @@
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pXe-TV-aij">
                                                 <rect key="frame" x="122.5" y="49" width="179.5" height="31"/>
+                                                <connections>
+                                                    <action selector="stregthSliderTriggered:" destination="XcN-dD-V2h" eventType="valueChanged" id="MOM-DI-UlN"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwV-wO-K20">
                                                 <rect key="frame" x="15" y="54" width="66.5" height="21"/>
@@ -193,6 +195,7 @@
                         <outlet property="coffeePickerView" destination="eO1-Bb-zV7" id="ha2-UV-X08"/>
                         <outlet property="statusLabel" destination="N49-2N-gQN" id="KkA-mg-HAl"/>
                         <outlet property="statusSwitch" destination="qay-37-NMD" id="0e0-we-mMx"/>
+                        <outlet property="strengthLabel" destination="XwV-wO-K20" id="RXd-g1-ytf"/>
                         <outlet property="strengthSlider" destination="pXe-TV-aij" id="hhD-5Q-aoU"/>
                     </connections>
                 </viewController>
@@ -481,10 +484,10 @@
             </objects>
             <point key="canvasLocation" x="-2259" y="-11"/>
         </scene>
-        <!--Manufacturers-->
+        <!--Shops-->
         <scene sceneID="NQ2-T2-xHi">
             <objects>
-                <viewController title="Manufacturers" id="2gT-y8-8zm" sceneMemberID="viewController">
+                <viewController title="Manufacturers" id="2gT-y8-8zm" userLabel="Shops" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pnX-yA-Urz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -502,7 +505,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sO0-48-9XQ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Manufacturers" image="Manufacturers" id="Z03-UQ-3jk"/>
+                    <tabBarItem key="tabBarItem" title="Shops" image="Shops" id="Z03-UQ-3jk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeE-lC-jO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -558,8 +561,8 @@
     <resources>
         <image name="Devices" width="24" height="24"/>
         <image name="Favorites" width="24" height="24"/>
-        <image name="Manufacturers" width="24" height="24"/>
         <image name="Settings" width="24" height="24"/>
+        <image name="Shops" width="24" height="24"/>
         <image name="coffeeMachineBackground" width="1000" height="1500"/>
         <image name="cookingPotBackground" width="1214" height="1214"/>
         <image name="fireAlarmBackground" width="750" height="1000"/>

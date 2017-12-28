@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+            // Override point for customization after application launch.
+        let firstLaunch = FirstLaunch(userDefaults: .standard, key: "com.FirstLaunch.WasLaunchedBefore")
+        if firstLaunch.isFirstLaunch {
+            devices = initializeDevices()
+        }
+        
         return true
     }
 

@@ -35,6 +35,7 @@
 		3FCB28F21FD0435B009117A4 /* SmartChefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB28F11FD0435B009117A4 /* SmartChefUITests.swift */; };
 		3FD468D61FEFE09700AA8365 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD468D51FEFE09700AA8365 /* PersistenceService.swift */; };
 		3FD4F60E1FED7F53008F5306 /* SmartChef.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4F60C1FED7F53008F5306 /* SmartChef.xcdatamodeld */; };
+		910A6ED01FF53F2600F26871 /* FirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A6ECF1FF53F2500F26871 /* FirstLaunch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		3FCB28F31FD0435B009117A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD468D51FEFE09700AA8365 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		3FD4F60D1FED7F53008F5306 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		910A6ECF1FF53F2500F26871 /* FirstLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstLaunch.swift; path = SmartChef/FirstLaunch.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				3FAD00B31FD1577A0072D09F /* Controllers */,
 				3FAD00AE1FD137940072D09F /* Model */,
 				3FCB28D11FD0435A009117A4 /* AppDelegate.swift */,
+				910A6ECF1FF53F2500F26871 /* FirstLaunch.swift */,
 				3FD468D51FEFE09700AA8365 /* PersistenceService.swift */,
 				3FCB28D81FD0435A009117A4 /* Assets.xcassets */,
 				3FCB28DD1FD0435A009117A4 /* Info.plist */,
@@ -363,6 +366,7 @@
 				3F5AA5241FED8CE4004C4FF7 /* CoffeeMachine+CoreDataClass.swift in Sources */,
 				3FD4F60E1FED7F53008F5306 /* SmartChef.xcdatamodeld in Sources */,
 				3F3040241FDA88DB000090E1 /* MicrowaveViewController.swift in Sources */,
+				910A6ED01FF53F2600F26871 /* FirstLaunch.swift in Sources */,
 				3F5AA52C1FED8D2C004C4FF7 /* FireAlarm+CoreDataClass.swift in Sources */,
 				3F5AA5311FED8D43004C4FF7 /* Fridge+CoreDataProperties.swift in Sources */,
 				3FCB28D21FD0435A009117A4 /* AppDelegate.swift in Sources */,

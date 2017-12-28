@@ -16,7 +16,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         "Cappuchino",
         "Latte Machiatto",
         "Espresso",
-    ]
+        ]
     
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
@@ -24,6 +24,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var brewProgress: UIProgressView!
     @IBOutlet weak var strengthSlider: UISlider!
     @IBOutlet weak var coffeePickerView: UIPickerView!
+    @IBOutlet weak var strengthLabel: UILabel!
     
     var coffeeMachine : CoffeeMachine?
     
@@ -39,12 +40,31 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             coffeeMachine?.status = false
             statusLabel.text = offString
             toggleInteractionOff()
-            }
+        }
+        PersistenceService.saveContext()
     }
+    
+   
+    @IBAction func stregthSliderTriggered(_ sender: UISlider) {
+        coffeeMachine?.strength = sender.value
+        PersistenceService.saveContext()
+    }
+    
     
     @IBAction func brewButtonPressed(_ sender: Any) {
         brewProgress.isHidden = false
         
+        if(Double((coffeeMachine?.strength)!) > 0.5)  {
+            coffeeMachine?.coffeeBeansLevel = (coffeeMachine?.coffeeBeansLevel)! - 50
+        } else if (Double((coffeeMachine?.strength)!) < 0.5) {
+            coffeeMachine?.coffeeBeansLevel = (coffeeMachine?.coffeeBeansLevel)! - 25
+        }
+        
+        if(coffeeMachine?.coffeeType == 1 || coffeeMachine?.coffeeType == 2 || coffeeMachine?.coffeeType == 3) {
+            coffeeMachine?.milkLevel = (coffeeMachine?.milkLevel)! - 25
+        }
+    
+        coffeeMachine?.waterLevel = (coffeeMachine?.waterLevel)! - 15
         
     }
     
@@ -52,7 +72,13 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         super.viewDidLoad()
         coffeePickerView.dataSource = self
         coffeePickerView.delegate = self
-        brewButton.setTitle("Brew me a \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
+        strengthSlider.value = (coffeeMachine?.strength)!
+    coffeePickerView.selectRow(Int(Int32(coffeeMachine!.coffeeType)), inComponent: 0, animated: false)
+        if pickerCoffeeDataArray[Int(Int32(coffeeMachine!.coffeeType))] == "Espresso" {
+            brewButton.setTitle("Brew me an \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
+        } else {
+            brewButton.setTitle("Brew me a \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
+        }
         
         if coffeeMachine?.status == true {
             statusSwitch.isOn = true
@@ -62,7 +88,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             statusSwitch.isOn = false
             statusLabel.text = offString
             toggleInteractionOff()
-            }
+        }
         
         
         // Do any additional setup after loading the view.
@@ -81,13 +107,13 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        coffeeMachine?.coffeeType = pickerCoffeeDataArray[row]
+        coffeeMachine?.coffeeType = Int16(row)
         if pickerCoffeeDataArray[row] == "Espresso" {
             brewButton.setTitle("Brew me an \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
         } else {
             brewButton.setTitle("Brew me a \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
         }
-        
+        PersistenceService.saveContext()
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
@@ -95,32 +121,35 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func toggleInteractionOn (){
+        strengthLabel.isEnabled = true
         coffeePickerView.isUserInteractionEnabled = true
         strengthSlider.isEnabled = true
         brewButton.isEnabled = true
     }
     
     func toggleInteractionOff (){
+        strengthLabel.isEnabled = false
         coffeePickerView.isUserInteractionEnabled = false
         strengthSlider.isEnabled = false
         brewButton.isEnabled = false
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+

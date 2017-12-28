@@ -10,7 +10,7 @@ class PersistenceService{
     private init(){}
     /*
      * global context
-    */
+     */
     static var context: NSManagedObjectContext{
         return persistentContainer.viewContext
     }
@@ -58,7 +58,9 @@ class PersistenceService{
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+        
+        
     }
     
-    
 }
+

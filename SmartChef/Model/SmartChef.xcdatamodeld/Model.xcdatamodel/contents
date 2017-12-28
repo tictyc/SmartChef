@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CoffeeMachine" representedClassName=".CoffeeMachine" parentEntity="Device" syncable="YES">
         <attribute name="coffeeBeansLevel" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="coffeeType" attributeType="String" syncable="YES"/>
+        <attribute name="coffeeType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="milkLevel" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="strength" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="strength" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="waterLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="CookingPot" representedClassName=".CookingPot" parentEntity="Device" syncable="YES">
         <attribute name="heat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -28,7 +29,7 @@
         <attribute name="watt" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CoffeeMachine" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="CoffeeMachine" positionX="-54" positionY="-9" width="128" height="120"/>
         <element name="CookingPot" positionX="9" positionY="81" width="128" height="60"/>
         <element name="Device" positionX="-54" positionY="54" width="128" height="90"/>
         <element name="FireAlarm" positionX="-9" positionY="72" width="128" height="75"/>
