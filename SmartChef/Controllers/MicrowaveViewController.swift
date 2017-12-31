@@ -15,6 +15,7 @@ class MicrowaveViewController: UIViewController {
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var countdownPicker: UIDatePicker!
+    @IBOutlet weak var microwaveModeSegmentedControl: UISegmentedControl!
     
     let onString = "Your Microwave is on."
     let offString = "Your Microwave is off."
@@ -30,14 +31,17 @@ class MicrowaveViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = microwave?.name
         
         
         if microwave?.status == true {
             statusSwitch.isOn = true
             statusLabel.text = onString
+            toggleInteractionOn()
         } else {
             statusSwitch.isOn = false
             statusLabel.text = offString
+            toggleInteractionOff()
         }
         // Do any additional setup after loading the view.
     }
@@ -47,15 +51,13 @@ class MicrowaveViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func toggleInteractionOn (){
+        microwaveModeSegmentedControl.isEnabled = true
+    }
+    
+    func toggleInteractionOff (){
+        microwaveModeSegmentedControl.isEnabled = false
+    }
     
 }
 

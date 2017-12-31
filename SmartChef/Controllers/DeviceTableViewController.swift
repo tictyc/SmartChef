@@ -23,10 +23,76 @@ class DeviceTableViewController: UITableViewController {
             self.devices = devices
             self.tableView.reloadData()
         } catch {
-            print()
+            print("Fetch Request failed.")
         }
         
     }
+    
+    @IBAction func editButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func plusButtonPressed(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Add a new device", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Device Name"
+        }
+        alert.addAction(UIAlertAction(title: "Coffee Machine", style: .default, handler: {(action) in
+            let name = alert.textFields?.first!.text!
+            let newCoffeeMachine = CoffeeMachine(context: PersistenceService.context)
+            newCoffeeMachine.name = name
+            newCoffeeMachine.image = "CoffeeMachine"
+            
+            PersistenceService.saveContext()
+            self.devices.append(newCoffeeMachine)
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Fire Alarm", style: .default, handler: {(action) in
+            let name = alert.textFields?.first!.text!
+            let newFireAlarm = FireAlarm(context: PersistenceService.context)
+            newFireAlarm.name = name
+            newFireAlarm.image = "FireAlarm"
+            
+            PersistenceService.saveContext()
+            self.devices.append(newFireAlarm)
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Fridge", style: .default, handler: {(action) in
+            let name = alert.textFields?.first!.text!
+            let newFridge = Fridge(context: PersistenceService.context)
+            newFridge.name = name
+            newFridge.image = "Fridge"
+            newFridge.status = true
+            newFridge.temperature = 4.0
+            newFridge.automatedOrders = false
+            
+            PersistenceService.saveContext()
+            self.devices.append(newFridge)
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Microwave", style: .default, handler: {(action) in
+            let name = alert.textFields?.first!.text!
+            let newMicrowave = Microwave(context: PersistenceService.context)
+            newMicrowave.name = name
+            newMicrowave.image = "Microwave"
+            
+            PersistenceService.saveContext()
+            self.devices.append(newMicrowave)
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Cooking Pot", style: .default, handler: {(action) in
+            let name = alert.textFields?.first!.text!
+            let newCookingPot = CookingPot(context: PersistenceService.context)
+            newCookingPot.name = name
+            newCookingPot.image = "CookingPot"
+            PersistenceService.saveContext()
+            self.devices.append(newCookingPot)
+            self.tableView.reloadData()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

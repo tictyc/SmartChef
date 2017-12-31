@@ -54,13 +54,3 @@ func initializeDevices() -> [Device]{
 }
 
 
-
-
-
-//var myFridge = Fridge(temperature: 3.0, automatedOrders: false)
-//var myMicroWave = MicroWave(watt: MicrowaveWatt.A, mode: MicrowaveMode.Microwaving, timer: 0.0)
-//var myFireAlarm = FireAlarm(alertTriggered: false, cookingMode: false)
-//var myCookingPot = CookingPot(heat: CookingPotHeat.middle)
-
-//let devices: [Device] = [myCoffeeMachine, myFridge, myMicroWave, myFireAlarm, myCookingPot]
-

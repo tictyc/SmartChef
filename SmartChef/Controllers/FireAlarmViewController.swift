@@ -29,6 +29,7 @@ class FireAlarmViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = fireAlarm?.name
         
         if fireAlarm?.status == true {
             statusSwitch.isOn = true

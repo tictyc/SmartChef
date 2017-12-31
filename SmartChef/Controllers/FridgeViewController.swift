@@ -27,7 +27,7 @@ class FridgeViewController: UIViewController {
             fridge?.status = true
             statusLabel.text = onString
         } else {
-            fridge?.status = true
+            fridge?.status = false
             statusLabel.text = offString
         }
         PersistenceService.saveContext()
@@ -44,13 +44,16 @@ class FridgeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = fridge?.name
         
         if fridge?.status == true {
             statusSwitch.isOn = true
             statusLabel.text = onString
+            toggleInteractionOn()
         } else {
             statusSwitch.isOn = false
             statusLabel.text = offString
+            toggleInteractionOff()
         }
         
         if fridge?.automatedOrders == true {
@@ -68,14 +71,14 @@ class FridgeViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func toggleInteractionOn () {
+        autoOrdersLabel.isEnabled = true
+        autoOrdersSwitch.isEnabled = true
+    }
+    
+    func toggleInteractionOff () {
+        autoOrdersLabel.isEnabled = false
+        autoOrdersSwitch.isEnabled = false
+    }
     
 }

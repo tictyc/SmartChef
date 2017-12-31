@@ -29,6 +29,7 @@ class CookingPotViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = pot?.name
         
         if pot?.status == true {
             statusSwitch.isOn = true
