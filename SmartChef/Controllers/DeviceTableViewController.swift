@@ -44,9 +44,7 @@ class DeviceTableViewController: UITableViewController {
             newCoffeeMachine.name = name
             newCoffeeMachine.image = "CoffeeMachine"
             
-            PersistenceService.saveContext()
-            self.devices.append(newCoffeeMachine)
-            self.tableView.reloadData()
+            self.persistNewDevice(newDevice: newCoffeeMachine)
         }))
         alert.addAction(UIAlertAction(title: "Fire Alarm", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
@@ -54,9 +52,7 @@ class DeviceTableViewController: UITableViewController {
             newFireAlarm.name = name
             newFireAlarm.image = "FireAlarm"
             
-            PersistenceService.saveContext()
-            self.devices.append(newFireAlarm)
-            self.tableView.reloadData()
+            self.persistNewDevice(newDevice: newFireAlarm)
         }))
         alert.addAction(UIAlertAction(title: "Fridge", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
@@ -67,9 +63,7 @@ class DeviceTableViewController: UITableViewController {
             newFridge.temperature = 4.0
             newFridge.automatedOrders = false
             
-            PersistenceService.saveContext()
-            self.devices.append(newFridge)
-            self.tableView.reloadData()
+            self.persistNewDevice(newDevice: newFridge)
         }))
         alert.addAction(UIAlertAction(title: "Microwave", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
@@ -77,20 +71,23 @@ class DeviceTableViewController: UITableViewController {
             newMicrowave.name = name
             newMicrowave.image = "Microwave"
             
-            PersistenceService.saveContext()
-            self.devices.append(newMicrowave)
-            self.tableView.reloadData()
+            self.persistNewDevice(newDevice: newMicrowave)
         }))
         alert.addAction(UIAlertAction(title: "Cooking Pot", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
             let newCookingPot = CookingPot(context: PersistenceService.context)
             newCookingPot.name = name
             newCookingPot.image = "CookingPot"
-            PersistenceService.saveContext()
-            self.devices.append(newCookingPot)
-            self.tableView.reloadData()
+            
+            self.persistNewDevice(newDevice: newCookingPot)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func persistNewDevice(newDevice: Device) {
+        PersistenceService.saveContext()
+        self.devices.append(newDevice)
+        self.tableView.reloadData()
     }
     
     
