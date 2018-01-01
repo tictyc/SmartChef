@@ -28,9 +28,6 @@ class DeviceTableViewController: UITableViewController {
         
     }
     
-    @IBAction func editButtonPressed(_ sender: Any) {
-        
-    }
     
     @IBAction func plusButtonPressed(_ sender: Any) {
         
@@ -86,15 +83,17 @@ class DeviceTableViewController: UITableViewController {
                 self.createNewDevice(name: name!, device: device)
             }
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
-            print("Cancel")
-        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            action in
+        })
+        
         self.present(alert, animated: true, completion: nil)
     }
     
     func persistNewDevice(newDevice: Device) {
-        PersistenceService.saveContext()
         self.devices.append(newDevice)
+        PersistenceService.saveContext()
         self.tableView.reloadData()
     }
     
@@ -123,7 +122,6 @@ class DeviceTableViewController: UITableViewController {
             print("error: device type does not exist")
         }
         device.name = name
-        
         persistNewDevice(newDevice: device)
     }
     
@@ -186,6 +184,25 @@ class DeviceTableViewController: UITableViewController {
         } else if segue.identifier == "ShowCookingPotDetail" {
             let deviceDetailVC = segue.destination as! CookingPotViewController
             deviceDetailVC.pot = selectedDevice as? CookingPot
+        }
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if indexPath.row < devices.count
+        {
+            let alert = UIAlertController(title: "Are you sure you want to delete \(devices[indexPath.row].name ?? "the device")?", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: {(action) in
+                let device = self.devices[indexPath.row]
+                PersistenceService.context.delete(device)
+                self.devices.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                PersistenceService.saveContext()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
+                
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
