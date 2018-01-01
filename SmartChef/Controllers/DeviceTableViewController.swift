@@ -38,48 +38,56 @@ class DeviceTableViewController: UITableViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "Device Name"
         }
+        
         alert.addAction(UIAlertAction(title: "Coffee Machine", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
-            let newCoffeeMachine = CoffeeMachine(context: PersistenceService.context)
-            newCoffeeMachine.name = name
-            newCoffeeMachine.image = "CoffeeMachine"
-            
-            self.persistNewDevice(newDevice: newCoffeeMachine)
+            if (name?.isBlank)! {
+                self.showEmptyNameAlert()
+            } else {
+                let device = CoffeeMachine(context: PersistenceService.context)
+                self.createNewDevice(name: name!, device: device)
+            }
         }))
         alert.addAction(UIAlertAction(title: "Fire Alarm", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
-            let newFireAlarm = FireAlarm(context: PersistenceService.context)
-            newFireAlarm.name = name
-            newFireAlarm.image = "FireAlarm"
-            
-            self.persistNewDevice(newDevice: newFireAlarm)
+            if (name?.isBlank)! {
+                self.showEmptyNameAlert()
+            } else {
+                let device = FireAlarm(context: PersistenceService.context)
+                self.createNewDevice(name: name!, device: device)
+            }
         }))
         alert.addAction(UIAlertAction(title: "Fridge", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
-            let newFridge = Fridge(context: PersistenceService.context)
-            newFridge.name = name
-            newFridge.image = "Fridge"
-            newFridge.status = true
-            newFridge.temperature = 4.0
-            newFridge.automatedOrders = false
-            
-            self.persistNewDevice(newDevice: newFridge)
+            if (name?.isBlank)! {
+                self.showEmptyNameAlert()
+            } else {
+                let device = Fridge(context: PersistenceService.context)
+                self.createNewDevice(name: name!, device: device)
+            }
         }))
+        
         alert.addAction(UIAlertAction(title: "Microwave", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
-            let newMicrowave = Microwave(context: PersistenceService.context)
-            newMicrowave.name = name
-            newMicrowave.image = "Microwave"
-            
-            self.persistNewDevice(newDevice: newMicrowave)
+            if (name?.isBlank)! {
+                self.showEmptyNameAlert()
+            } else {
+                let device = Microwave(context: PersistenceService.context)
+                self.createNewDevice(name: name!, device: device)
+            }
         }))
+        
         alert.addAction(UIAlertAction(title: "Cooking Pot", style: .default, handler: {(action) in
             let name = alert.textFields?.first!.text!
-            let newCookingPot = CookingPot(context: PersistenceService.context)
-            newCookingPot.name = name
-            newCookingPot.image = "CookingPot"
-            
-            self.persistNewDevice(newDevice: newCookingPot)
+            if (name?.isBlank)! {
+                self.showEmptyNameAlert()
+            } else {
+                let device = CookingPot(context: PersistenceService.context)
+                self.createNewDevice(name: name!, device: device)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
+            print("Cancel")
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -88,6 +96,35 @@ class DeviceTableViewController: UITableViewController {
         PersistenceService.saveContext()
         self.devices.append(newDevice)
         self.tableView.reloadData()
+    }
+    
+    func showEmptyNameAlert() {
+        let emptyStringAlert = UIAlertController(title: "Please enter a name for your new device!", message: nil, preferredStyle: .alert)
+        emptyStringAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {
+            (action) in
+            self.plusButtonPressed(emptyStringAlert)
+        }))
+        self.present(emptyStringAlert, animated: true, completion: nil)
+    }
+    
+    func createNewDevice(name: String, device: Device) {
+        switch device {
+        case device as CoffeeMachine:
+            device.image = "CoffeeMachine"
+        case device as Fridge:
+            device.image = "Fridge"
+        case device as Microwave:
+            device.image = "Microwave"
+        case device as CookingPot:
+            device.image = "CookingPot"
+        case device as FireAlarm:
+            device.image = "FireAlarm"
+        default:
+            print("error: device type does not exist")
+        }
+        device.name = name
+        
+        persistNewDevice(newDevice: device)
     }
     
     
@@ -153,3 +190,8 @@ class DeviceTableViewController: UITableViewController {
     }
 }
 
+extension String {
+    var isBlank: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
