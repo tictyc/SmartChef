@@ -15,10 +15,10 @@ func initializeDevices() -> [Device]{
     myCoffeeMachine.image = "CoffeeMachine"
     myCoffeeMachine.status = false
     myCoffeeMachine.milkLevel = 100
-    myCoffeeMachine.coffeeBeansLevel = 100
+    myCoffeeMachine.coffeeBeansLevel = 7.0
     myCoffeeMachine.waterLevel = 100
     myCoffeeMachine.coffeeType = 0
-    myCoffeeMachine.strength = 0.7
+    myCoffeeMachine.strength = 0.5
     
     let myMicrowave = Microwave(context: PersistenceService.context)
     myMicrowave.name = "Microwave"

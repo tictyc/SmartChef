@@ -21,7 +21,6 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var statusSwitch: UISwitch!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var brewButton: UIButton!
-    @IBOutlet weak var brewProgress: UIProgressView!
     @IBOutlet weak var strengthSlider: UISlider!
     @IBOutlet weak var coffeePickerView: UIPickerView!
     @IBOutlet weak var strengthLabel: UILabel!
@@ -52,19 +51,17 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     
     
     @IBAction func brewButtonPressed(_ sender: Any) {
-        brewProgress.isHidden = false
-        
-        if(Double((coffeeMachine?.strength)!) > 0.5)  {
-            coffeeMachine?.coffeeBeansLevel = (coffeeMachine?.coffeeBeansLevel)! - 50
-        } else if (Double((coffeeMachine?.strength)!) < 0.5) {
-            coffeeMachine?.coffeeBeansLevel = (coffeeMachine?.coffeeBeansLevel)! - 25
-        }
-        
+        var isMilkFilled = true
         if(coffeeMachine?.coffeeType == 1 || coffeeMachine?.coffeeType == 2 || coffeeMachine?.coffeeType == 3) {
-            coffeeMachine?.milkLevel = (coffeeMachine?.milkLevel)! - 25
+            isMilkFilled = checkMilk()
         }
-    
-        coffeeMachine?.waterLevel = (coffeeMachine?.waterLevel)! - 15
+        if checkCoffeeBeans() == true && isMilkFilled == true && checkWater() == true {
+            let alert = UIAlertController(title: "Your \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)]) is being brewn and will be ready soon!", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default) {
+                action in
+            })
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
@@ -135,6 +132,49 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         coffeePickerView.isUserInteractionEnabled = false
         strengthSlider.isEnabled = false
         brewButton.isEnabled = false
+    }
+    
+    func checkCoffeeBeans() -> Bool {
+        if (coffeeMachine?.coffeeBeansLevel.isLess(than: (coffeeMachine?.strength)!))! {
+            let alert = UIAlertController(title: "The coffee beans are empty and need to be refilled.", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Refill", style: .default, handler: {(action) in
+                self.coffeeMachine?.coffeeBeansLevel = 7.0
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        } else {
+            coffeeMachine?.coffeeBeansLevel -= (coffeeMachine?.strength)!
+            return true
+        }
+    }
+    
+    func checkMilk() -> Bool {
+        
+        if (coffeeMachine?.milk)! < 25 {
+            let alert = UIAlertController(title: "The milk container is empty and need to be refilled.", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Refill", style: .default, handler: {(action) in
+                self.coffeeMachine?.milk = 100
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        } else {
+            coffeeMachine?.milkLevel -= 25
+            return true
+        }
+    }
+    
+    func checkWater() -> Bool {
+        if (coffeeMachine?.water)! < 15 {
+            let alert = UIAlertController(title: "The water container is empty and need to be refilled.", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Refill", style: .default, handler: {(action) in
+                self.coffeeMachine?.water = 100
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        } else {
+            coffeeMachine?.waterLevel = (coffeeMachine?.waterLevel)! - 15
+            return true
+        }
     }
     
     
