@@ -106,6 +106,10 @@ class MicrowaveViewController: UIViewController {
             microwave?.status = false
             statusLabel.text = offString
             toggleInteractionOff()
+            if timer.isValid {
+                timer.invalidate()
+            }
+            exitTimer()
         }
         PersistenceService.saveContext()
     }
