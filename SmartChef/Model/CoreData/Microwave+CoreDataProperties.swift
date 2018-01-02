@@ -17,7 +17,6 @@ extension Microwave {
         return NSFetchRequest<Microwave>(entityName: "Microwave")
     }
 
-    @NSManaged public var watt: Int16
     @NSManaged public var mode: String?
     @NSManaged public var timer: Double
 

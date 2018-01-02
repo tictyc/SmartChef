@@ -21,6 +21,7 @@ class MicrowaveViewController: UIViewController {
     @IBOutlet weak var microwaveButton: UIButton!
     @IBOutlet weak var remainingTime: UILabel!
     @IBOutlet weak var cancelTimerButton: UIButton!
+    @IBOutlet weak var heatingLabel: UILabel!
     
     
     let onString = "Your Microwave is on."
@@ -85,6 +86,8 @@ class MicrowaveViewController: UIViewController {
         
         remainingTime.isHidden = true
         cancelTimerButton.isHidden = true
+        heatingLabel.isHidden = true
+        
         timerPicker.isHidden = false
         microwaveButton.isHidden = false
     }
@@ -117,7 +120,7 @@ class MicrowaveViewController: UIViewController {
         case 2:
             microwave?.mode = "Convection"
         default:
-            print("Non-Existing Index selected, something went wrong.")
+            print("Non-Existing Index: \(sender.selectedSegmentIndex) selected, something went wrong.")
         }
         PersistenceService.saveContext()
     }
@@ -152,7 +155,7 @@ class MicrowaveViewController: UIViewController {
         case "Convection"?:
             microwaveModeSegmentedControl.selectedSegmentIndex = 2
         default:
-            print("Illegal value for microwave.mode")
+            print("Illegal value for microwave.mode: \(microwave?.mode ?? "nil")")
         }
     }
     
@@ -160,8 +163,10 @@ class MicrowaveViewController: UIViewController {
         // UI state setup to show the timer
         timerPicker.isHidden = true
         microwaveButton.isHidden = true
+        
         cancelTimerButton.isHidden = false
         remainingTime.isHidden = false
+        heatingLabel.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {

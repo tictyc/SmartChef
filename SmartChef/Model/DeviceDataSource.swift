@@ -24,8 +24,7 @@ func initializeDevices() -> [Device]{
     myMicrowave.name = "Microwave"
     myMicrowave.image = "Microwave"
     myMicrowave.status = false
-    myMicrowave.watt = 400
-    myMicrowave.mode = "microwave"
+    myMicrowave.mode = "Microwave"
     myMicrowave.timer = 10.0
     
     let myFireAlarm = FireAlarm(context: PersistenceService.context)

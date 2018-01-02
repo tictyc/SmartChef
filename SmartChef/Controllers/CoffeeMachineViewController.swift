@@ -72,7 +72,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         coffeePickerView.dataSource = self
         coffeePickerView.delegate = self
         strengthSlider.value = (coffeeMachine?.strength)!
-    coffeePickerView.selectRow(Int(Int32(coffeeMachine!.coffeeType)), inComponent: 0, animated: false)
+        coffeePickerView.selectRow(Int(Int32(coffeeMachine!.coffeeType)), inComponent: 0, animated: false)
         
         if pickerCoffeeDataArray[Int(Int32(coffeeMachine!.coffeeType))] == "Espresso" {
             brewButton.setTitle("Brew me an \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
