@@ -62,7 +62,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             })
             self.present(alert, animated: true, completion: nil)
         }
-        
+        PersistenceService.saveContext()
     }
     
     override func viewDidLoad() {
@@ -136,11 +136,8 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     
     func checkCoffeeBeans() -> Bool {
         if (coffeeMachine?.coffeeBeansLevel.isLess(than: (coffeeMachine?.strength)!))! {
-            let alert = UIAlertController(title: "The coffee beans are empty and need to be refilled.", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Refill", style: .default, handler: {(action) in
-                self.coffeeMachine?.coffeeBeansLevel = 7.0
-            }))
-            self.present(alert, animated: true, completion: nil)
+            fireAlert(title: "The coffee beans are empty and need to be refilled.", confirmationTitle: "Refill")
+            self.coffeeMachine?.coffeeBeansLevel = 7.0
             return false
         } else {
             coffeeMachine?.coffeeBeansLevel -= (coffeeMachine?.strength)!
@@ -151,11 +148,8 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     func checkMilk() -> Bool {
         
         if (coffeeMachine?.milk)! < 25 {
-            let alert = UIAlertController(title: "The milk container is empty and need to be refilled.", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Refill", style: .default, handler: {(action) in
-                self.coffeeMachine?.milk = 100
-            }))
-            self.present(alert, animated: true, completion: nil)
+            fireAlert(title: "The milk is empty and needs to be refilled.", confirmationTitle: "Refill")
+            self.coffeeMachine?.milk = 100
             return false
         } else {
             coffeeMachine?.milkLevel -= 25
@@ -165,11 +159,8 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     
     func checkWater() -> Bool {
         if (coffeeMachine?.water)! < 15 {
-            let alert = UIAlertController(title: "The water container is empty and need to be refilled.", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Refill", style: .default, handler: {(action) in
-                self.coffeeMachine?.water = 100
-            }))
-            self.present(alert, animated: true, completion: nil)
+            fireAlert(title: "The water is empty and needs to be refilled.", confirmationTitle: "Refill")
+            self.coffeeMachine?.water = 100
             return false
         } else {
             coffeeMachine?.waterLevel = (coffeeMachine?.waterLevel)! - 15
@@ -182,17 +173,6 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
