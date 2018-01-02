@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MicrowaveViewController: UIViewController {
     
@@ -30,6 +31,13 @@ class MicrowaveViewController: UIViewController {
 
     
     @IBAction func startMicrowavingAction(_ sender: UIButton) {
+        
+        // Ask for permission to deliver notifications
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+        
         // Starts a timer for the microwaving process
         if seconds < 10 {
             remainingTime.text = "\(minutes):0\(seconds)"
@@ -45,7 +53,13 @@ class MicrowaveViewController: UIViewController {
         seconds -= 1
         
         if seconds <= 0 && minutes <= 0 {
-            fireAlert(title: "Your microwaved food is ready.", confirmationTitle: "Okay")
+            
+            // if the timer is over, fire notifcation or alert depending on if the app is in background or not
+            if UIApplication.shared.applicationState == .background {
+                fireNotification(title: "\(microwave?.name ?? "Microwave")", body: "Your food is ready.")
+            } else {
+                fireAlert(title: "Your food processed in the \(microwave?.name ?? "Microwave") is ready.", confirmationTitle: "Confirm")
+            }
             
             timer.invalidate()
             exitTimer()
@@ -90,6 +104,7 @@ class MicrowaveViewController: UIViewController {
             statusLabel.text = offString
             toggleInteractionOff()
         }
+        PersistenceService.saveContext()
     }
     
     @IBAction func microwaveModeSegControlAction(_ sender: UISegmentedControl) {
