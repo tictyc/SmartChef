@@ -17,6 +17,6 @@ extension CookingPot {
         return NSFetchRequest<CookingPot>(entityName: "CookingPot")
     }
 
-    @NSManaged public var heat: Int16
+    @NSManaged public var heat: Float
 
 }

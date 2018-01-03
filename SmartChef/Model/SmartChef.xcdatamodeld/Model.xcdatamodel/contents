@@ -8,7 +8,7 @@
         <attribute name="waterLevel" optional="YES" attributeType="Integer 16" defaultValueString="100" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="CookingPot" representedClassName=".CookingPot" parentEntity="Device" syncable="YES">
-        <attribute name="heat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="heat" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Device" representedClassName=".Device" isAbstract="YES" syncable="YES">
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "13-Genius-Uses-Of-Smartphone-Camera-Contents-Of-Your-Fridge-When-Grocery-Shopping.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "13-Genius-Uses-Of-Smartphone-Camera-Contents-Of-Your-Fridge-When-Grocery-Shopping-1.jpg",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "13-Genius-Uses-Of-Smartphone-Camera-Contents-Of-Your-Fridge-When-Grocery-Shopping-2.jpg",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

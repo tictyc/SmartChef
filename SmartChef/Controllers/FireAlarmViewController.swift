@@ -11,34 +11,49 @@ import UIKit
 class FireAlarmViewController: UIViewController {
     
     var fireAlarm : FireAlarm?
+    var timer = Timer()
+    var fireAlarmDeactivationCounter: Int = 60 * 30
+    @IBOutlet weak var silenceStatusText: UILabel!
+    @IBOutlet weak var silenceButton: RoundButton!
     
-    @IBOutlet weak var statusSwitch: UISwitch!
-    @IBOutlet weak var statusLabel: UILabel!
+    let onString = "Your alarm is active. Press and hold to silence your alarm for 30 minutes."
+    let offString = "Your alarm is silenced. Press and hold to unsilence your alarm again."
     
-    let onString = "Your Fire Alarm is on."
-    let offString = "Your Fire Alarm is off."
-    
-    @IBAction func statusSwitchAction(_ sender: UISwitch) {
-        if sender.isOn {
-            fireAlarm?.status = true
-            statusLabel.text = onString
-        } else {
-            fireAlarm?.status = true
-            statusLabel.text = offString
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = fireAlarm?.name
         
-        if fireAlarm?.status == true {
-            statusSwitch.isOn = true
-            statusLabel.text = onString
+        if silenceButton.alarmState {
+            silenceStatusText.text = onString
         } else {
-            statusSwitch.isOn = false
-            statusLabel.text = offString
+            silenceStatusText.text = offString
         }
+        
+        // initialize gesture recognizer for long press
+        let holdAndSilence = UILongPressGestureRecognizer(target: self, action: #selector(silenceFireAlarm(sender:)))
+        holdAndSilence.minimumPressDuration = 1.2
+        silenceButton.addGestureRecognizer(holdAndSilence)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func silenceFireAlarm(sender: UIGestureRecognizer) {
+        
+        if sender.state == .ended {
+            // if button was pressed long enough, shrink button again and switch modes of the fire alarm
+            
+            fireAlarm?.cookingMode = true
+            silenceButton.shrinkButtonAgain()
+            
+            if silenceButton.alarmState {
+                timer.invalidate()
+                fireAlarmDeactivationCounter = 30 * 60
+                silenceStatusText.text = onString
+            } else {
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector (self.counter), userInfo: nil, repeats: true)
+                silenceStatusText.text = offString
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,16 +61,19 @@ class FireAlarmViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @objc func counter() {
+        fireAlarmDeactivationCounter -= 1
+        
+        if fireAlarmDeactivationCounter == 0 {
+            // resets timer & resets states to unsilenced fire alarm again
+            
+            fireAlarm?.cookingMode = false
+            timer.invalidate()
+            silenceButton.changeState(oldState: false)
+            silenceStatusText.text = onString
+            fireAlarmDeactivationCounter = 30 * 60
+        }
+    }
     
 }
 

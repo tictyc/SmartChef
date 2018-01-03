@@ -23,7 +23,6 @@ class CookingPotViewController: UIViewController {
     @IBOutlet weak var heatSlider: UISlider!
     @IBOutlet weak var remainingTime: UILabel!
     
-    
     let onString = "Your Cooking Pot is on."
     let offString = "Your Cooking Pot is off."
     
@@ -67,6 +66,11 @@ class CookingPotViewController: UIViewController {
             }
             exitTimer()
         }
+    }
+    
+    @IBAction func heatSliderAction(_ sender: UISlider) {
+        pot?.heat = sender.value
+        PersistenceService.saveContext()
     }
     
     override func viewDidLoad() {
