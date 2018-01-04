@@ -32,12 +32,7 @@ class MicrowaveViewController: UIViewController {
 
     
     @IBAction func startMicrowavingAction(_ sender: UIButton) {
-        
-        // Ask for permission to deliver notifications
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
-        }
+        askForNotificationPermission()
         
         // Starts a timer for the microwaving process
         if seconds < 10 {

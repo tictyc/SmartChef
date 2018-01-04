@@ -38,6 +38,7 @@ class ShopMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         searchStores()
     }
     
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         searchStores()
     }
@@ -62,10 +63,10 @@ class ShopMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = item.placemark.coordinate
                     annotation.title = item.name
+                    annotation.subtitle = item.phoneNumber
                     self.shopMap.addAnnotation(annotation)
                 }
             }
         })
     }
-    
 }

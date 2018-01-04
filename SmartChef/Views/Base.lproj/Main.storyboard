@@ -578,56 +578,6 @@
             </objects>
             <point key="canvasLocation" x="-54.375" y="886.26760563380287"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="8Y8-7T-tFc">
-            <objects>
-                <tableViewController title="Settings" id="K5z-AF-UbK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zZy-8J-OSy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sections>
-                            <tableViewSection id="SzV-yI-8hg">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCells" id="RWw-Fu-6bx">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RWw-Fu-6bx" id="jLK-u1-17g">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" textLabel="p8u-kh-1lZ" style="IBUITableViewCellStyleDefault" id="hc6-ta-B1L">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hc6-ta-B1L" id="9Tx-rC-uvO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="About SmartChef" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p8u-kh-1lZ">
-                                                    <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="K5z-AF-UbK" id="yBV-wp-NeT"/>
-                            <outlet property="delegate" destination="K5z-AF-UbK" id="jFf-Od-KR6"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="7PQ-wZ-tuM"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sSF-If-saQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2259" y="-742"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Wha-Dw-xR6">
             <objects>
@@ -641,7 +591,6 @@
                         <segue destination="4Kc-4n-aGB" kind="relationship" relationship="viewControllers" id="WCK-SB-eZB"/>
                         <segue destination="o7X-AZ-qkk" kind="relationship" relationship="viewControllers" id="XKs-u5-oWA"/>
                         <segue destination="2gT-y8-8zm" kind="relationship" relationship="viewControllers" id="I2K-f5-QoC"/>
-                        <segue destination="K5z-AF-UbK" kind="relationship" relationship="viewControllers" id="TLn-94-9Q5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDM-Pa-2Gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -729,7 +678,6 @@
         <image name="Devices" width="24" height="24"/>
         <image name="Favorites" width="24" height="24"/>
         <image name="FridgeInside" width="864" height="864"/>
-        <image name="Settings" width="24" height="24"/>
         <image name="Shops" width="24" height="24"/>
         <image name="VolumeOn" width="24" height="24"/>
         <image name="coffeeMachineBackground" width="1000" height="1500"/>
