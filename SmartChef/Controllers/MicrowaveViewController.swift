@@ -49,8 +49,8 @@ class MicrowaveViewController: UIViewController {
         seconds -= 1
         
         if seconds <= 0 && minutes <= 0 {
-            
             // if the timer is over, fire notifcation or alert depending on if the app is in background or not
+            
             if UIApplication.shared.applicationState == .background {
                 fireNotification(title: "\(microwave?.name ?? "Microwave")", body: "Your food is ready.")
             } else {
@@ -61,12 +61,7 @@ class MicrowaveViewController: UIViewController {
             exitTimer()
             return
         }
-        
-        if seconds < 10 {
-            remainingTime.text = "\(minutes):0\(seconds)"
-        } else {
-            remainingTime.text = "\(minutes):\(seconds)"
-        }
+        seconds < 10 ? (remainingTime.text = "\(minutes):0\(seconds)") : (remainingTime.text = "\(minutes):\(seconds)")
         
         if seconds == 0 {
             minutes -= 1

@@ -42,13 +42,11 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         PersistenceService.saveContext()
     }
-    
    
     @IBAction func stregthSliderTriggered(_ sender: UISlider) {
         coffeeMachine?.strength = sender.value
         PersistenceService.saveContext()
     }
-    
     
     @IBAction func brewButtonPressed(_ sender: Any) {
         var isMilkFilled = true
@@ -89,9 +87,6 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             statusLabel.text = offString
             toggleInteractionOff()
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -167,7 +162,6 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             return true
         }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

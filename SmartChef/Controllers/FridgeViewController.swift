@@ -12,13 +12,8 @@ class FridgeViewController: UIViewController {
     
     var fridge : Fridge?
     
-    
-    @IBOutlet weak var statusSwitch: UISwitch!
-    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var autoOrdersSwitch: UISwitch!
     @IBOutlet weak var autoOrdersLabel: UILabel!
-    
-    
     
     @IBAction func autoOrdersAction(_ sender: UISwitch) {
         if sender.isOn {
@@ -32,30 +27,13 @@ class FridgeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = fridge?.name
-        
-        if fridge?.status == true {
-//         statusSwitch.isOn = true
-            
-            toggleInteractionOn()
-        } else {
-//       statusSwitch.isOn = false
-            toggleInteractionOff()
-        }
-        
-        if fridge?.automatedOrders == true {
-            autoOrdersSwitch.isOn = true
-        } else {
-            autoOrdersSwitch.isOn = false
-        }
-        
-        // Do any additional setup after loading the view.
+        fridge!.automatedOrders ? (autoOrdersSwitch.isOn = true) : (autoOrdersSwitch.isOn = false)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     func toggleInteractionOn () {
         autoOrdersLabel.isEnabled = true

@@ -20,5 +20,5 @@ extension Device {
     @NSManaged public var name: String?
     @NSManaged public var image: String?
     @NSManaged public var status: Bool
-
+    @NSManaged public var isFavorite: Bool
 }

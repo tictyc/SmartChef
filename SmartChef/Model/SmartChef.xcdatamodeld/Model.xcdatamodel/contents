@@ -12,6 +12,7 @@
     </entity>
     <entity name="Device" representedClassName=".Device" isAbstract="YES" syncable="YES">
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -28,11 +29,11 @@
         <attribute name="timer" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CoffeeMachine" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="CookingPot" positionX="9" positionY="81" width="128" height="60"/>
-        <element name="Device" positionX="-54" positionY="54" width="128" height="90"/>
-        <element name="FireAlarm" positionX="-9" positionY="72" width="128" height="75"/>
-        <element name="Fridge" positionX="-27" positionY="63" width="128" height="75"/>
-        <element name="Microwave" positionX="-36" positionY="54" width="128" height="75"/>
+        <element name="CoffeeMachine" positionX="-11" positionY="-126" width="128" height="120"/>
+        <element name="CookingPot" positionX="196" positionY="63" width="128" height="60"/>
+        <element name="Device" positionX="-54" positionY="92" width="128" height="103"/>
+        <element name="FireAlarm" positionX="225" positionY="-45" width="128" height="75"/>
+        <element name="Fridge" positionX="-369" positionY="45" width="128" height="73"/>
+        <element name="Microwave" positionX="-225" positionY="-81" width="128" height="75"/>
     </elements>
 </model>

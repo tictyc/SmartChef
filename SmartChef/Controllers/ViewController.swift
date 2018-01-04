@@ -50,3 +50,44 @@ extension UIViewController {
         }
     }
 }
+
+extension String {
+    var isBlank: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
+extension DeviceTableViewController {
+    
+    func createDeviceAlert(alert: UIAlertController ,title: String, viewController: DeviceTableViewController) {
+        alert.addAction(UIAlertAction(title: title, style: .default, handler: {(action) in
+            let name = alert.textFields?.first!.text!
+            if (name?.isBlank)! {
+                viewController.showEmptyNameAlert(viewController: self)
+            } else {
+                let device : Device
+                switch title {
+                    case "Coffee Machine": device = CoffeeMachine(context: PersistenceService.context)
+                    case "Fridge": device = Fridge(context: PersistenceService.context)
+                    case "Microwave": device = Microwave(context: PersistenceService.context)
+                    case "FireAlarm": device = FireAlarm(context: PersistenceService.context)
+                    case "Cooking Pot": device = CookingPot(context: PersistenceService.context)
+                default:
+                    print("something went wrong in the createDeviceAlert() switch")
+                    device = CoffeeMachine(context: PersistenceService.context)
+                }
+                viewController.createNewDevice(name: name!, device: device)
+            }
+        }))
+    }
+    
+    func showEmptyNameAlert(viewController: DeviceTableViewController) {
+        let emptyStringAlert = UIAlertController(title: "Adding a new device has failed", message: "Please enter a name for your new device.", preferredStyle: .alert)
+        emptyStringAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {
+            (action) in
+            viewController.plusButtonPressed(emptyStringAlert)
+        }))
+        self.present(emptyStringAlert, animated: true, completion: nil)
+    }
+}
+

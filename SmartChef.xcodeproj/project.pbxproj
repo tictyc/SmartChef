@@ -24,6 +24,7 @@
 		3F5AA5341FED8D56004C4FF7 /* Microwave+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5321FED8D56004C4FF7 /* Microwave+CoreDataClass.swift */; };
 		3F5AA5351FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AA5331FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift */; };
 		3F8B16DF1FFE2AE9001B2795 /* ShopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B16DE1FFE2AE9001B2795 /* ShopMapViewController.swift */; };
+		3F8B16E71FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */; };
 		3F9E05491FFCC10D001AC6C9 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E05481FFCC10D001AC6C9 /* RoundButton.swift */; };
 		3FA736461FDECD3100E07A30 /* CookingPotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */; };
 		3FAD00B21FD14B850072D09F /* DeviceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD00B11FD14B850072D09F /* DeviceDataSource.swift */; };
@@ -75,6 +76,7 @@
 		3F5AA5321FED8D56004C4FF7 /* Microwave+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Microwave+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3F5AA5331FED8D56004C4FF7 /* Microwave+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Microwave+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F8B16DE1FFE2AE9001B2795 /* ShopMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMapViewController.swift; sourceTree = "<group>"; };
+		3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDevicesTableViewController.swift; sourceTree = "<group>"; };
 		3F9E05481FFCC10D001AC6C9 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingPotViewController.swift; sourceTree = "<group>"; };
 		3FAD00B11FD14B850072D09F /* DeviceDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataSource.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */,
 				3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */,
 				3F8B16DE1FFE2AE9001B2795 /* ShopMapViewController.swift */,
+				3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				3FAD00B81FD15FA70072D09F /* DeviceTableViewController.swift in Sources */,
 				3F3040201FDA8899000090E1 /* CoffeeMachineViewController.swift in Sources */,
 				3FCB28D41FD0435A009117A4 /* ViewController.swift in Sources */,
+				3F8B16E71FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift in Sources */,
 				3FA736461FDECD3100E07A30 /* CookingPotViewController.swift in Sources */,
 				3F9E05491FFCC10D001AC6C9 /* RoundButton.swift in Sources */,
 				3F3040261FDA88E7000090E1 /* FireAlarmViewController.swift in Sources */,

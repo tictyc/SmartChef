@@ -19,22 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeviceCell" rowHeight="50" id="f1g-Kg-zgw" customClass="DeviceTableViewCell" customModule="SmartChef" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeviceCell" id="f1g-Kg-zgw" customClass="DeviceTableViewCell" customModule="SmartChef" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f1g-Kg-zgw" id="SPJ-wm-3DA">
-                                    <rect key="frame" x="0.0" y="0.0" width="286" height="49.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="890-Oc-0sc">
-                                            <rect key="frame" x="8" y="7" width="36" height="36"/>
+                                            <rect key="frame" x="8" y="4" width="36" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="Ghr-V8-tc9"/>
                                                 <constraint firstAttribute="width" constant="36" id="bkI-dv-hqr"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hW5-EE-G4g">
-                                            <rect key="frame" x="58" y="14" width="210" height="20"/>
+                                            <rect key="frame" x="58" y="12" width="210" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="cAG-wE-VkI"/>
                                             </constraints>
@@ -65,6 +65,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Your Kitchen" id="EPJ-1x-bnc">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="zhU-Ai-Uqx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b9V-Nv-ATi">
                             <connections>
                                 <action selector="plusButtonPressed:" destination="oMf-w4-UBR" id="cOv-fi-ysu"/>
@@ -83,6 +84,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzD-sF-4lx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-54.375" y="-9.5070422535211261"/>
+        </scene>
+        <!--Favorite Devices-->
+        <scene sceneID="03R-zz-FB4">
+            <objects>
+                <tableViewController id="i5P-Go-fVf" customClass="FavoriteDevicesTableViewController" customModule="SmartChef" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jY4-So-nlq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeviceCell" rowHeight="50" id="x5G-OV-yWQ" customClass="DeviceTableViewCell" customModule="SmartChef" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x5G-OV-yWQ" id="jc6-Hx-hYi">
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4t3-D3-pyY">
+                                            <rect key="frame" x="8" y="7" width="36" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="7Bu-oy-kJE"/>
+                                                <constraint firstAttribute="width" constant="36" id="Pk0-cz-HTD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOr-NV-2Gh">
+                                            <rect key="frame" x="58" y="14" width="210" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="gDn-73-UG2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4t3-D3-pyY" firstAttribute="leading" secondItem="jc6-Hx-hYi" secondAttribute="leading" constant="8" id="9Ij-cp-nZL"/>
+                                        <constraint firstItem="rOr-NV-2Gh" firstAttribute="centerY" secondItem="jc6-Hx-hYi" secondAttribute="centerY" id="GBq-kc-NvF"/>
+                                        <constraint firstItem="4t3-D3-pyY" firstAttribute="centerY" secondItem="jc6-Hx-hYi" secondAttribute="centerY" id="Tyh-U3-qxW"/>
+                                        <constraint firstItem="rOr-NV-2Gh" firstAttribute="leading" secondItem="4t3-D3-pyY" secondAttribute="leading" constant="50" id="XbE-8D-qFY"/>
+                                        <constraint firstAttribute="trailing" secondItem="rOr-NV-2Gh" secondAttribute="trailing" constant="18" id="gCC-6f-YE0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="deviceImageView" destination="4t3-D3-pyY" id="biC-9p-g2h"/>
+                                    <outlet property="deviceNameLabel" destination="rOr-NV-2Gh" id="LXN-7x-pBH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="i5P-Go-fVf" id="aDr-bb-Yp5"/>
+                            <outlet property="delegate" destination="i5P-Go-fVf" id="TiV-Ho-2e0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorite Devices" id="9rs-JG-edC"/>
+                    <connections>
+                        <segue destination="XcN-dD-V2h" kind="show" identifier="ShowCoffeeMachineDetail" id="UwA-CB-Nox"/>
+                        <segue destination="Ubv-D6-uNt" kind="show" identifier="ShowMicrowaveDetail" id="tZ3-a0-yUd"/>
+                        <segue destination="ig2-8S-Miq" kind="show" identifier="ShowFireAlarmDetail" id="5a8-ia-PTl"/>
+                        <segue destination="0w3-qC-2td" kind="show" identifier="ShowFridgeDetail" id="dFN-qV-Di3"/>
+                        <segue destination="fm1-aV-ZjX" kind="show" identifier="ShowCookingPotDetail" id="ouL-rJ-QZE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28e-Oy-oUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="-980"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="XGy-gN-RSD">
+            <objects>
+                <navigationController id="OWc-Kl-E4G" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites" id="Psm-vg-DbK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="iyi-v0-UnU">
+                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="i5P-Go-fVf" kind="relationship" relationship="rootViewController" id="QxM-3g-hFR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55a-Ez-kEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144" y="-980"/>
         </scene>
         <!--Coffee Machine-->
         <scene sceneID="c0g-4V-cGa">
@@ -290,6 +374,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KNO-vg-5r8"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelTimerButton" destination="1az-jp-l3S" id="7It-bt-LnY"/>
                         <outlet property="heatingLabel" destination="243-Wn-maZ" id="L5E-85-H18"/>
@@ -589,7 +675,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="4Kc-4n-aGB" kind="relationship" relationship="viewControllers" id="WCK-SB-eZB"/>
-                        <segue destination="o7X-AZ-qkk" kind="relationship" relationship="viewControllers" id="XKs-u5-oWA"/>
+                        <segue destination="OWc-Kl-E4G" kind="relationship" relationship="viewControllers" id="uQq-yt-OWn"/>
                         <segue destination="2gT-y8-8zm" kind="relationship" relationship="viewControllers" id="I2K-f5-QoC"/>
                     </connections>
                 </tabBarController>
@@ -627,35 +713,6 @@
             </objects>
             <point key="canvasLocation" x="-2259" y="811"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="Z5F-dP-6o6">
-            <objects>
-                <tableViewController title="Favorites" id="o7X-AZ-qkk" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qN3-6D-qGd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" id="Z10-8O-c4H">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z10-8O-c4H" id="jZ3-5d-p43">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="o7X-AZ-qkk" id="qen-Wk-N7P"/>
-                            <outlet property="delegate" destination="o7X-AZ-qkk" id="s8z-sS-lJF"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites" id="yrM-wS-aqx"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3rp-n6-IzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1294" y="812"/>
-        </scene>
         <!--Devices-->
         <scene sceneID="xXW-XQ-BtX">
             <objects>
@@ -686,4 +743,11 @@
         <image name="fridgeBackground" width="1000" height="1500"/>
         <image name="microwaveBackground" width="1000" height="1500"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PVN-50-JpT"/>
+        <segue reference="PYt-9b-3AV"/>
+        <segue reference="6wB-xY-Usx"/>
+        <segue reference="gQC-Da-J0z"/>
+        <segue reference="Yew-F1-A7e"/>
+    </inferredMetricsTieBreakers>
 </document>

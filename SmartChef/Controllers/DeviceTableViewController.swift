@@ -11,13 +11,12 @@ import CoreData
 
 class DeviceTableViewController: UITableViewController {
     
-    var devices : [Device]!
+    var devices : [Device] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let fetchRequest : NSFetchRequest<Device> = Device.fetchRequest()
-        
         do {
             let devices = try PersistenceService.context.fetch(fetchRequest)
             self.devices = devices
@@ -25,69 +24,24 @@ class DeviceTableViewController: UITableViewController {
         } catch {
             print("Fetch Request failed.")
         }
-        
     }
-    
+
     
     @IBAction func plusButtonPressed(_ sender: Any) {
-        
         let alert = UIAlertController(title: "Add a new device", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Device Name"
         }
         
-        alert.addAction(UIAlertAction(title: "Coffee Machine", style: .default, handler: {(action) in
-            let name = alert.textFields?.first!.text!
-            if (name?.isBlank)! {
-                self.showEmptyNameAlert()
-            } else {
-                let device = CoffeeMachine(context: PersistenceService.context)
-                self.createNewDevice(name: name!, device: device)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Fire Alarm", style: .default, handler: {(action) in
-            let name = alert.textFields?.first!.text!
-            if (name?.isBlank)! {
-                self.showEmptyNameAlert()
-            } else {
-                let device = FireAlarm(context: PersistenceService.context)
-                self.createNewDevice(name: name!, device: device)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Fridge", style: .default, handler: {(action) in
-            let name = alert.textFields?.first!.text!
-            if (name?.isBlank)! {
-                self.showEmptyNameAlert()
-            } else {
-                let device = Fridge(context: PersistenceService.context)
-                self.createNewDevice(name: name!, device: device)
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Microwave", style: .default, handler: {(action) in
-            let name = alert.textFields?.first!.text!
-            if (name?.isBlank)! {
-                self.showEmptyNameAlert()
-            } else {
-                let device = Microwave(context: PersistenceService.context)
-                self.createNewDevice(name: name!, device: device)
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cooking Pot", style: .default, handler: {(action) in
-            let name = alert.textFields?.first!.text!
-            if (name?.isBlank)! {
-                self.showEmptyNameAlert()
-            } else {
-                let device = CookingPot(context: PersistenceService.context)
-                self.createNewDevice(name: name!, device: device)
-            }
-        }))
+        createDeviceAlert(alert: alert, title: "Coffee Machine", viewController: self)
+        createDeviceAlert(alert: alert, title: "Microwave", viewController: self)
+        createDeviceAlert(alert: alert, title: "Fire Alarm", viewController: self)
+        createDeviceAlert(alert: alert, title: "Fridge", viewController: self)
+        createDeviceAlert(alert: alert, title: "Cooking Pot", viewController: self)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
             action in
         })
-        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -95,15 +49,6 @@ class DeviceTableViewController: UITableViewController {
         self.devices.append(newDevice)
         PersistenceService.saveContext()
         self.tableView.reloadData()
-    }
-    
-    func showEmptyNameAlert() {
-        let emptyStringAlert = UIAlertController(title: "Please enter a name for your new device!", message: nil, preferredStyle: .alert)
-        emptyStringAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {
-            (action) in
-            self.plusButtonPressed(emptyStringAlert)
-        }))
-        self.present(emptyStringAlert, animated: true, completion: nil)
     }
     
     func createNewDevice(name: String, device: Device) {
@@ -138,7 +83,6 @@ class DeviceTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath) as! DeviceTableViewCell
         let device = devices[indexPath.row]
         cell.device = device
-        
         return cell
     }
     
@@ -205,10 +149,13 @@ class DeviceTableViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-}
-
-extension String {
-    var isBlank: Bool {
-        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
+    }
+    
 }
