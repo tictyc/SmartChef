@@ -18,20 +18,7 @@ class FridgeViewController: UIViewController {
     @IBOutlet weak var autoOrdersSwitch: UISwitch!
     @IBOutlet weak var autoOrdersLabel: UILabel!
     
-    let onString = "Your Fridge is on."
-    let offString = "Your Fridge is off."
     
-    
-    @IBAction func statusSwitchAction(_ sender: UISwitch) {
-        if sender.isOn {
-            fridge?.status = true
-            statusLabel.text = onString
-        } else {
-            fridge?.status = false
-            statusLabel.text = offString
-        }
-        PersistenceService.saveContext()
-    }
     
     @IBAction func autoOrdersAction(_ sender: UISwitch) {
         if sender.isOn {
@@ -47,12 +34,11 @@ class FridgeViewController: UIViewController {
         self.title = fridge?.name
         
         if fridge?.status == true {
-            statusSwitch.isOn = true
-            statusLabel.text = onString
+//         statusSwitch.isOn = true
+            
             toggleInteractionOn()
         } else {
-            statusSwitch.isOn = false
-            statusLabel.text = offString
+//       statusSwitch.isOn = false
             toggleInteractionOff()
         }
         

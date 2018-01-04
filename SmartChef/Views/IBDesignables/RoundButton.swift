@@ -26,6 +26,7 @@ import UIKit
             self.layer.borderColor = borderColor.cgColor
         }
     }
+    
     var e = UIViewPropertyAnimator()
     var alarmState: Bool = true
     
