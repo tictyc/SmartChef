@@ -32,9 +32,6 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         self.title = coffeeMachine?.name
         loadBarButtons()
         
@@ -61,14 +58,11 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // WORKAROUND: not a sustainable production level solution
-        print(coffeeMachine == nil)
-        print(coffeeMachine)
-        if coffeeMachine == nil {
-            navigationController?.popViewController(animated: false)
-        } else {
-            print("\(coffeeMachine?.name) is not nil.")
-        }
+        loadBarButtons()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.popViewController(animated: false)
     }
     
     
@@ -91,11 +85,14 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     @IBAction func brewButtonPressed(_ sender: Any) {
-        
         var isMilkFilled = true
+        
+        // if the selected coffee involves milk, check for milk fill level
         if(coffeeMachine?.coffeeType == 1 || coffeeMachine?.coffeeType == 2 || coffeeMachine?.coffeeType == 3) {
             isMilkFilled = checkMilk()
         }
+        
+        // if water, milk and coffee are filled notify the user of successfull action
         if checkCoffeeBeans() == true && isMilkFilled == true && checkWater() == true {
             let alert = UIAlertController(title: "Your \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)]) is being brewn and will be ready soon!", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default) {
@@ -103,27 +100,9 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             })
             self.present(alert, animated: true, completion: nil)
         }
+        
+        // persist changes made to the coffee fill level attributes
         PersistenceService.saveContext()
-    }
-    
-    @objc func addToFavorites() {
-        coffeeMachine?.isFavorite = true
-        PersistenceService.saveContext()
-        loadBarButtons()
-    }
-    
-    @objc func removeFromFavorites() {
-        coffeeMachine?.isFavorite = false
-        PersistenceService.saveContext()
-        loadBarButtons()
-    }
-    
-    func loadBarButtons() {
-        if coffeeMachine?.isFavorite == false {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
-        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -139,6 +118,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // set the coffeeType attribute corresponding to the selected pickerView row
         coffeeMachine?.coffeeType = Int16(row)
         if pickerCoffeeDataArray[row] == "Espresso" {
             brewButton.setTitle("Brew me an \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
@@ -205,5 +185,25 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         // Dispose of any resources that can be recreated.
     }
     
+    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
+    @objc func addToFavorites() {
+        coffeeMachine?.isFavorite = true
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    @objc func removeFromFavorites() {
+        coffeeMachine?.isFavorite = false
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    func loadBarButtons() {
+        if coffeeMachine?.isFavorite == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
+        }
+    }
 }
 

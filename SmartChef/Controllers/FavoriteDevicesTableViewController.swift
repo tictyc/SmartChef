@@ -64,15 +64,19 @@ class FavoriteDevicesTableViewController: DeviceTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if indexPath.row < favoriteDevices.count
         {
+            // Ask user for verification of the delete process
             let alert = UIAlertController(title: "Are you sure you want to delete \(favoriteDevices[indexPath.row].name ?? "the device")?", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Confirm", style: .destructive, handler: {(action) in
+                
+                // if confirmed: delete the device from the context
                 let device = self.favoriteDevices[indexPath.row] as NSManagedObject
                 PersistenceService.context.delete(device)
                 
+                // delete the device from the data source array favoriteDevices, then delete the corresponding tableView row
                 self.favoriteDevices.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             
-                
+                // save the context and tell DeviceTableViewController to refresh its data source
                 PersistenceService.saveContext()
                 super.fetchDevices()
             }))
@@ -80,6 +84,7 @@ class FavoriteDevicesTableViewController: DeviceTableViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
     
     func fetchFavorites() {
         let fetchRequest : NSFetchRequest<Device> = Device.fetchRequest()

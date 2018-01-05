@@ -29,6 +29,33 @@ class CookingPotViewController: UIViewController {
     var seconds: Int = 0
     var minutes: Int = 0
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = pot?.name
+        
+        timerPicker.dataSource = self
+        timerPicker.delegate = self
+        
+        if pot?.status == true {
+            statusSwitch.isOn = true
+            statusLabel.text = onString
+            toggleInteractionOn()
+        } else {
+            statusSwitch.isOn = false
+            statusLabel.text = offString
+            toggleInteractionOff()
+        }
+        loadBarButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadBarButtons()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.popViewController(animated: false)
+    }
+    
     @IBAction func startCookingAction(_ sender: UIButton) {
         askForNotificationPermission()
         
@@ -67,25 +94,6 @@ class CookingPotViewController: UIViewController {
     @IBAction func heatSliderAction(_ sender: UISlider) {
         pot?.heat = sender.value
         PersistenceService.saveContext()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = pot?.name
-        
-        timerPicker.dataSource = self
-        timerPicker.delegate = self
-        
-        if pot?.status == true {
-            statusSwitch.isOn = true
-            statusLabel.text = onString
-            toggleInteractionOn()
-        } else {
-            statusSwitch.isOn = false
-            statusLabel.text = offString
-            toggleInteractionOff()
-        }
-        // Do any additional setup after loading the view.
     }
     
     @objc func counter () {
@@ -199,6 +207,28 @@ extension CookingPotViewController:UIPickerViewDelegate,UIPickerViewDataSource {
             }
         default:
             return NSAttributedString(string: "\(row) Seconds", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        }
+    }
+    
+    
+    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
+    @objc func addToFavorites() {
+        pot?.isFavorite = true
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    @objc func removeFromFavorites() {
+        pot?.isFavorite = false
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    func loadBarButtons() {
+        if pot?.isFavorite == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
         }
     }
 }

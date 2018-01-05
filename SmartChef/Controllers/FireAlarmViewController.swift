@@ -34,14 +34,20 @@ class FireAlarmViewController: UIViewController {
         holdAndSilence.minimumPressDuration = 1.2
         silenceButton.addGestureRecognizer(holdAndSilence)
         
-        // Do any additional setup after loading the view.
+        loadBarButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadBarButtons()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.popViewController(animated: false)
     }
     
     @objc func silenceFireAlarm(sender: UIGestureRecognizer) {
-        
         if sender.state == .ended {
             // if button was pressed long enough, shrink button again and switch modes of the fire alarm
-            
             fireAlarm?.cookingMode = true
             silenceButton.shrinkButtonAgain()
             
@@ -75,5 +81,26 @@ class FireAlarmViewController: UIViewController {
         }
     }
     
+    
+    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
+    @objc func addToFavorites() {
+        fireAlarm?.isFavorite = true
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    @objc func removeFromFavorites() {
+        fireAlarm?.isFavorite = false
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    func loadBarButtons() {
+        if fireAlarm?.isFavorite == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
+        }
+    }
 }
 

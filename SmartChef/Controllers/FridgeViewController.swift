@@ -28,6 +28,15 @@ class FridgeViewController: UIViewController {
         super.viewDidLoad()
         self.title = fridge?.name
         fridge!.automatedOrders ? (autoOrdersSwitch.isOn = true) : (autoOrdersSwitch.isOn = false)
+        loadBarButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadBarButtons()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.popViewController(animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,4 +54,25 @@ class FridgeViewController: UIViewController {
         autoOrdersSwitch.isEnabled = false
     }
     
+    
+    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
+    @objc func addToFavorites() {
+        fridge?.isFavorite = true
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    @objc func removeFromFavorites() {
+        fridge?.isFavorite = false
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    func loadBarButtons() {
+        if fridge?.isFavorite == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
+        }
+    }
 }

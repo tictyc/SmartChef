@@ -23,13 +23,54 @@ class MicrowaveViewController: UIViewController {
     @IBOutlet weak var cancelTimerButton: UIButton!
     @IBOutlet weak var heatingLabel: UILabel!
     
-    
     let onString = "Your Microwave is on."
     let offString = "Your Microwave is off."
     
     var minutes: Int = 0
     var seconds: Int = 0
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = microwave?.name
+        
+        timerPicker.delegate = self
+        timerPicker.dataSource = self
+        
+        // UI Setup based on Microwave status
+        if microwave?.status == true {
+            statusSwitch.isOn = true
+            statusLabel.text = onString
+            toggleInteractionOn()
+            if timer.isValid {
+                showTimer()
+            }
+        } else {
+            statusSwitch.isOn = false
+            statusLabel.text = offString
+            toggleInteractionOff()
+        }
+        
+        // Pre-select the SegmentedControl Segment
+        switch microwave?.mode {
+        case "Microwave"?:
+            microwaveModeSegmentedControl.selectedSegmentIndex = 0
+        case "Grilling"?:
+            microwaveModeSegmentedControl.selectedSegmentIndex = 1
+        case "Convection"?:
+            microwaveModeSegmentedControl.selectedSegmentIndex = 2
+        default:
+            print("Illegal value for microwave.mode: \(microwave?.mode ?? "nil")")
+        }
+        loadBarButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadBarButtons()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.popViewController(animated: false)
+    }
     
     @IBAction func startMicrowavingAction(_ sender: UIButton) {
         askForNotificationPermission()
@@ -119,40 +160,6 @@ class MicrowaveViewController: UIViewController {
         PersistenceService.saveContext()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = microwave?.name
-        
-        timerPicker.delegate = self
-        timerPicker.dataSource = self
-        
-        // UI Setup based on Microwave status
-        if microwave?.status == true {
-            statusSwitch.isOn = true
-            statusLabel.text = onString
-            toggleInteractionOn()
-            if timer.isValid {
-                showTimer()
-            }
-        } else {
-            statusSwitch.isOn = false
-            statusLabel.text = offString
-            toggleInteractionOff()
-        }
-        
-        // Pre-select the SegmentedControl Segment
-        switch microwave?.mode {
-        case "Microwave"?:
-            microwaveModeSegmentedControl.selectedSegmentIndex = 0
-        case "Grilling"?:
-            microwaveModeSegmentedControl.selectedSegmentIndex = 1
-        case "Convection"?:
-            microwaveModeSegmentedControl.selectedSegmentIndex = 2
-        default:
-            print("Illegal value for microwave.mode: \(microwave?.mode ?? "nil")")
-        }
-    }
-    
     func showTimer() {
         // UI state setup to show the timer
         timerPicker.isHidden = true
@@ -221,6 +228,28 @@ extension MicrowaveViewController:UIPickerViewDelegate,UIPickerViewDataSource {
             }
         default:
             return NSAttributedString(string: "\(row) Seconds", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        }
+    }
+    
+    
+    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
+    @objc func addToFavorites() {
+        microwave?.isFavorite = true
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    @objc func removeFromFavorites() {
+        microwave?.isFavorite = false
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    func loadBarButtons() {
+        if microwave?.isFavorite == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
         }
     }
 }
