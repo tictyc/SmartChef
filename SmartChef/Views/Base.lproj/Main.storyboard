@@ -65,7 +65,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Your Kitchen" id="EPJ-1x-bnc">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="zhU-Ai-Uqx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b9V-Nv-ATi">
                             <connections>
                                 <action selector="plusButtonPressed:" destination="oMf-w4-UBR" id="cOv-fi-ysu"/>

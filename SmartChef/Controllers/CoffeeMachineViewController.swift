@@ -30,42 +30,13 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     let onString = "Your Coffee Machine is on."
     let offString = "Your Coffee Machine is off."
     
-    @IBAction func statusSwitchAction(_ sender: UISwitch) {
-        if sender.isOn {
-            coffeeMachine?.status = true
-            statusLabel.text = onString
-            toggleInteractionOn()
-        } else {
-            coffeeMachine?.status = false
-            statusLabel.text = offString
-            toggleInteractionOff()
-        }
-        PersistenceService.saveContext()
-    }
-   
-    @IBAction func stregthSliderTriggered(_ sender: UISlider) {
-        coffeeMachine?.strength = sender.value
-        PersistenceService.saveContext()
-    }
-    
-    @IBAction func brewButtonPressed(_ sender: Any) {
-        var isMilkFilled = true
-        if(coffeeMachine?.coffeeType == 1 || coffeeMachine?.coffeeType == 2 || coffeeMachine?.coffeeType == 3) {
-            isMilkFilled = checkMilk()
-        }
-        if checkCoffeeBeans() == true && isMilkFilled == true && checkWater() == true {
-            let alert = UIAlertController(title: "Your \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)]) is being brewn and will be ready soon!", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default) {
-                action in
-            })
-            self.present(alert, animated: true, completion: nil)
-        }
-        PersistenceService.saveContext()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         self.title = coffeeMachine?.name
+        loadBarButtons()
         
         coffeePickerView.dataSource = self
         coffeePickerView.delegate = self
@@ -86,6 +57,72 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
             statusSwitch.isOn = false
             statusLabel.text = offString
             toggleInteractionOff()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // WORKAROUND: not a sustainable production level solution
+        print(coffeeMachine == nil)
+        print(coffeeMachine)
+        if coffeeMachine == nil {
+            navigationController?.popViewController(animated: false)
+        } else {
+            print("\(coffeeMachine?.name) is not nil.")
+        }
+    }
+    
+    
+    @IBAction func statusSwitchAction(_ sender: UISwitch) {
+        if sender.isOn {
+            coffeeMachine?.status = true
+            statusLabel.text = onString
+            toggleInteractionOn()
+        } else {
+            coffeeMachine?.status = false
+            statusLabel.text = offString
+            toggleInteractionOff()
+        }
+        PersistenceService.saveContext()
+    }
+   
+    @IBAction func stregthSliderTriggered(_ sender: UISlider) {
+        coffeeMachine?.strength = sender.value
+        PersistenceService.saveContext()
+    }
+    
+    @IBAction func brewButtonPressed(_ sender: Any) {
+        
+        var isMilkFilled = true
+        if(coffeeMachine?.coffeeType == 1 || coffeeMachine?.coffeeType == 2 || coffeeMachine?.coffeeType == 3) {
+            isMilkFilled = checkMilk()
+        }
+        if checkCoffeeBeans() == true && isMilkFilled == true && checkWater() == true {
+            let alert = UIAlertController(title: "Your \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)]) is being brewn and will be ready soon!", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default) {
+                action in
+            })
+            self.present(alert, animated: true, completion: nil)
+        }
+        PersistenceService.saveContext()
+    }
+    
+    @objc func addToFavorites() {
+        coffeeMachine?.isFavorite = true
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    @objc func removeFromFavorites() {
+        coffeeMachine?.isFavorite = false
+        PersistenceService.saveContext()
+        loadBarButtons()
+    }
+    
+    func loadBarButtons() {
+        if coffeeMachine?.isFavorite == false {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add to favorites", style: .plain, target: self, action: #selector(addToFavorites))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove from favorites", style: .plain, target: self, action: #selector(removeFromFavorites))
         }
     }
     

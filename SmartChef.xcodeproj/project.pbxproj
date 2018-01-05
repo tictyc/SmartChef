@@ -166,13 +166,13 @@
 			children = (
 				3FCB28D31FD0435A009117A4 /* ViewController.swift */,
 				3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */,
+				3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */,
 				3F30401F1FDA8899000090E1 /* CoffeeMachineViewController.swift */,
 				3F3040211FDA88C5000090E1 /* FridgeViewController.swift */,
 				3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */,
 				3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */,
 				3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */,
 				3F8B16DE1FFE2AE9001B2795 /* ShopMapViewController.swift */,
-				3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -51,6 +51,7 @@ extension UIViewController {
     }
 }
 
+
 extension String {
     var isBlank: Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
@@ -70,7 +71,7 @@ extension DeviceTableViewController {
                     case "Coffee Machine": device = CoffeeMachine(context: PersistenceService.context)
                     case "Fridge": device = Fridge(context: PersistenceService.context)
                     case "Microwave": device = Microwave(context: PersistenceService.context)
-                    case "FireAlarm": device = FireAlarm(context: PersistenceService.context)
+                    case "Fire Alarm": device = FireAlarm(context: PersistenceService.context)
                     case "Cooking Pot": device = CookingPot(context: PersistenceService.context)
                 default:
                     print("something went wrong in the createDeviceAlert() switch")

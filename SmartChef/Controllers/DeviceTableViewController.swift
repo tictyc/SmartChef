@@ -15,12 +15,18 @@ class DeviceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchDevices()
+    }
+    
+    func fetchDevices () {
         let fetchRequest : NSFetchRequest<Device> = Device.fetchRequest()
         do {
             let devices = try PersistenceService.context.fetch(fetchRequest)
             self.devices = devices
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                print("devices: \(self.devices.count)")
+                self.tableView.reloadData()
+            }
         } catch {
             print("Fetch Request failed.")
         }
@@ -130,6 +136,7 @@ class DeviceTableViewController: UITableViewController {
             deviceDetailVC.pot = selectedDevice as? CookingPot
         }
     }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if indexPath.row < devices.count
         {
@@ -156,6 +163,11 @@ class DeviceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.fetchDevices()
     }
     
 }
