@@ -29,32 +29,28 @@ class ShopMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     override func viewDidLoad() {
         super.viewDidLoad()
         shopMap.delegate = self
-        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
-        searchStores()
+        searchKitchenStores()
     }
-    
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        searchStores()
+        searchKitchenStores()
     }
     
-    func searchStores() {
+    func searchKitchenStores() {
         let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = "Electronics Store"
+        request.naturalLanguageQuery = "Kitchen Store"
         request.region = shopMap.region
-        
+    
         let search = MKLocalSearch(request: request)
-        
         search.start(completionHandler: {(response, error) in
             if error != nil {
-                print("Error while searching: \(error!.localizedDescription)")
+                print("Error: \(error!.localizedDescription)")
             } else if response!.mapItems.count == 0 {
-                    print("No smart home stores found")
+                    print("No stores found")
             } else {
                 for item in response!.mapItems {
                     

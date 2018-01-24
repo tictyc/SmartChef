@@ -12,7 +12,7 @@ class FireAlarmViewController: UIViewController {
     
     var fireAlarm : FireAlarm?
     var timer = Timer()
-    var fireAlarmDeactivationCounter: Int = 60 * 30
+    var fireAlarmDeactivationCounter: Int = 30*60
     @IBOutlet weak var silenceStatusText: UILabel!
     @IBOutlet weak var silenceButton: RoundButton!
     
@@ -31,7 +31,7 @@ class FireAlarmViewController: UIViewController {
         
         // initialize gesture recognizer for long press
         let holdAndSilence = UILongPressGestureRecognizer(target: self, action: #selector(silenceFireAlarm(sender:)))
-        holdAndSilence.minimumPressDuration = 1.2
+        holdAndSilence.minimumPressDuration = 1.0
         silenceButton.addGestureRecognizer(holdAndSilence)
         
         loadBarButtons()
@@ -48,7 +48,6 @@ class FireAlarmViewController: UIViewController {
     @objc func silenceFireAlarm(sender: UIGestureRecognizer) {
         if sender.state == .ended {
             // if button was pressed long enough, shrink button again and switch modes of the fire alarm
-            fireAlarm?.cookingMode = true
             silenceButton.shrinkButtonAgain()
             
             if silenceButton.alarmState {

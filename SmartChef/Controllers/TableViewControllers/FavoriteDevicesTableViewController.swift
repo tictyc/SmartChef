@@ -98,7 +98,6 @@ class FavoriteDevicesTableViewController: DeviceTableViewController {
             }
             self.favoriteDevices = newFavorites
             self.tableView.reloadData()
-            print("favorites: \(self.favoriteDevices.count)")
         } catch {
             print("Fetch Request failed.")
         }

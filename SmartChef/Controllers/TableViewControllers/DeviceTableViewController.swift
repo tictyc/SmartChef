@@ -24,7 +24,6 @@ class DeviceTableViewController: UITableViewController {
             let devices = try PersistenceService.context.fetch(fetchRequest)
             self.devices = devices
             DispatchQueue.main.async {
-                print("devices: \(self.devices.count)")
                 self.tableView.reloadData()
             }
         } catch {

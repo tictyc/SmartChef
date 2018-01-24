@@ -164,14 +164,9 @@
 		3FAD00B31FD1577A0072D09F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91539BB62018E89700AA8C8A /* DeviceViewControllers */,
+				91539BB12018E85400AA8C8A /* TableViewControllers */,
 				3FCB28D31FD0435A009117A4 /* ViewController.swift */,
-				3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */,
-				3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */,
-				3F30401F1FDA8899000090E1 /* CoffeeMachineViewController.swift */,
-				3F3040211FDA88C5000090E1 /* FridgeViewController.swift */,
-				3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */,
-				3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */,
-				3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */,
 				3F8B16DE1FFE2AE9001B2795 /* ShopMapViewController.swift */,
 			);
 			path = Controllers;
@@ -238,6 +233,27 @@
 				3FCB28F31FD0435B009117A4 /* Info.plist */,
 			);
 			path = SmartChefUITests;
+			sourceTree = "<group>";
+		};
+		91539BB12018E85400AA8C8A /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FAD00B71FD15FA70072D09F /* DeviceTableViewController.swift */,
+				3F8B16E61FFE8B51001B2795 /* FavoriteDevicesTableViewController.swift */,
+			);
+			path = TableViewControllers;
+			sourceTree = "<group>";
+		};
+		91539BB62018E89700AA8C8A /* DeviceViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F30401F1FDA8899000090E1 /* CoffeeMachineViewController.swift */,
+				3F3040211FDA88C5000090E1 /* FridgeViewController.swift */,
+				3F3040231FDA88DB000090E1 /* MicrowaveViewController.swift */,
+				3F3040251FDA88E7000090E1 /* FireAlarmViewController.swift */,
+				3FA736451FDECD3100E07A30 /* CookingPotViewController.swift */,
+			);
+			path = DeviceViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

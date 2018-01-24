@@ -31,7 +31,7 @@ import UIKit
     var alarmState: Bool = true
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        e = UIViewPropertyAnimator(duration: 1.3, curve: .easeInOut) {
+        e = UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut) {
             self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }
         e.addCompletion{ _ in
@@ -54,6 +54,7 @@ import UIKit
         }
         e.startAnimation()
     }
+    
     func changeState(oldState: Bool) {
         if oldState {
             self.backgroundColor = UIColor.darkGray

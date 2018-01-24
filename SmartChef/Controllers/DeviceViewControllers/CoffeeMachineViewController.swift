@@ -65,7 +65,6 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         navigationController?.popViewController(animated: false)
     }
     
-    
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
         if sender.isOn {
             coffeeMachine?.status = true
