@@ -13,6 +13,7 @@ final class FirstLaunch {
     var isFirstLaunch: Bool {
         return !wasLaunchedBefore
     }
+    
     init(getWasLaunchedBefore: () -> Bool,
          setWasLaunchedBefore: (Bool) -> ()) {
         let wasLaunchedBefore = getWasLaunchedBefore()
@@ -21,6 +22,7 @@ final class FirstLaunch {
             setWasLaunchedBefore(true)
         }
     }
+    
     convenience init(userDefaults : UserDefaults, key : String) {
         self.init(getWasLaunchedBefore : {
             userDefaults.bool(forKey: key) },
