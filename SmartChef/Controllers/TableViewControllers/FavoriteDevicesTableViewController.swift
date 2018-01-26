@@ -87,6 +87,8 @@ class FavoriteDevicesTableViewController: DeviceTableViewController {
     
     
     func fetchFavorites() {
+        // extract the favorites from the stored devices
+        
         let fetchRequest : NSFetchRequest<Device> = Device.fetchRequest()
         do {
             let devices = try PersistenceService.context.fetch(fetchRequest)

@@ -76,6 +76,8 @@ class CookingPotViewController: UIViewController {
     }
     
     @IBAction func statusSwitchAction(_ sender: UISwitch) {
+        // turn interaction and functionality on/off
+        
         if sender.isOn {
             pot?.status = true
             statusLabel.text = onString
@@ -211,14 +213,17 @@ extension CookingPotViewController:UIPickerViewDelegate,UIPickerViewDataSource {
     }
     
     
-    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
     @objc func addToFavorites() {
+        // add device to favorites and refresh UIBarButtonItems
+        
         pot?.isFavorite = true
         PersistenceService.saveContext()
         loadBarButtons()
     }
     
     @objc func removeFromFavorites() {
+        // remove device from favorites and refresh UIBarButtonItems
+        
         pot?.isFavorite = false
         PersistenceService.saveContext()
         loadBarButtons()

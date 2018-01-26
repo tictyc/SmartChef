@@ -26,6 +26,8 @@ class ViewController: UIViewController {
 extension UIViewController {
     
     func fireAlert(title: String, confirmationTitle: String) {
+        // convenience function to fire alerts
+        
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let confirm = UIAlertAction(title: confirmationTitle, style: .default, handler: nil)
         alert.addAction(confirm)
@@ -33,6 +35,8 @@ extension UIViewController {
     }
     
     func fireNotification(title: String, body: String) {
+        // convenience function to fire notifications
+        
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -62,12 +66,15 @@ extension DeviceTableViewController {
     
     func createDeviceAlert(alert: UIAlertController ,title: String, viewController: DeviceTableViewController) {
         alert.addAction(UIAlertAction(title: title, style: .default, handler: {(action) in
+            // alert that allows user to create a new device
+            
             let name = alert.textFields?.first!.text!
             if (name?.isBlank)! {
                 viewController.showEmptyNameAlert(viewController: self)
             } else {
                 let device : Device
                 switch title {
+                    // create new device with the entered name and chosen type
                     case "Coffee Machine": device = CoffeeMachine(context: PersistenceService.context)
                     case "Fridge": device = Fridge(context: PersistenceService.context)
                     case "Microwave": device = Microwave(context: PersistenceService.context)
@@ -83,6 +90,8 @@ extension DeviceTableViewController {
     }
     
     func showEmptyNameAlert(viewController: DeviceTableViewController) {
+        // notify the user of failed device creation due to an empty name
+        
         let emptyStringAlert = UIAlertController(title: "Adding a new device has failed", message: "Please enter a name for your new device.", preferredStyle: .alert)
         emptyStringAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {
             (action) in

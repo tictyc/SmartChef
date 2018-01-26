@@ -14,10 +14,11 @@ class ShopMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
 
     @IBOutlet weak var shopMap: MKMapView!
     var matchingStores: [MKMapItem] = [MKMapItem]()
-    
     let manager = CLLocationManager()
+    let request = MKLocalSearchRequest()
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // refresh coordinates on location update
         let location = locations[0]
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.1, 0.1)
         let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
@@ -41,7 +42,7 @@ class ShopMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func searchKitchenStores() {
-        let request = MKLocalSearchRequest()
+        
         request.naturalLanguageQuery = "Kitchen Store"
         request.region = shopMap.region
     
@@ -53,6 +54,7 @@ class ShopMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     print("No stores found")
             } else {
                 for item in response!.mapItems {
+                    // show search responses on the map
                     
                     self.matchingStores.append(item as MKMapItem)
                     

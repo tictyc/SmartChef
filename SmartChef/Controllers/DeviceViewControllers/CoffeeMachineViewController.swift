@@ -32,6 +32,8 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // UI Setup
+        
         self.title = coffeeMachine?.name
         loadBarButtons()
         
@@ -118,6 +120,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // set the coffeeType attribute corresponding to the selected pickerView row
+        
         coffeeMachine?.coffeeType = Int16(row)
         if pickerCoffeeDataArray[row] == "Espresso" {
             brewButton.setTitle("Brew me an \(pickerCoffeeDataArray[coffeePickerView.selectedRow(inComponent: 0)])", for: .normal)
@@ -128,6 +131,8 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        // set color of the picker view row titles to white
+        
         return NSAttributedString(string: pickerCoffeeDataArray[row], attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
     
@@ -146,6 +151,8 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func checkCoffeeBeans() -> Bool {
+        //check coffee beans level and tell the user to refill if necessary
+        
         if (coffeeMachine?.coffeeBeansLevel.isLess(than: (coffeeMachine?.strength)!))! {
             fireAlert(title: "The coffee beans are empty and need to be refilled.", confirmationTitle: "Refill")
             self.coffeeMachine?.coffeeBeansLevel = 7.0
@@ -157,6 +164,7 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func checkMilk() -> Bool {
+        // check milk level of the coffee machine and tell the user to refill milk if necessary
         
         if (coffeeMachine?.milk)! < 25 {
             fireAlert(title: "The milk is empty and needs to be refilled.", confirmationTitle: "Refill")
@@ -184,14 +192,19 @@ class CoffeeMachineViewController: UIViewController, UIPickerViewDataSource, UIP
         // Dispose of any resources that can be recreated.
     }
     
-    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
+   
+    
     @objc func addToFavorites() {
+        // add device to favorites and refresh UIBarButtonItems
+        
         coffeeMachine?.isFavorite = true
         PersistenceService.saveContext()
         loadBarButtons()
     }
     
     @objc func removeFromFavorites() {
+        // remove device from favorites and refresh UIBarButtonItems
+        
         coffeeMachine?.isFavorite = false
         PersistenceService.saveContext()
         loadBarButtons()

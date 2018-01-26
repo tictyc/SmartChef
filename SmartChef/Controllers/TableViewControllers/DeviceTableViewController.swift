@@ -19,6 +19,8 @@ class DeviceTableViewController: UITableViewController {
     }
     
     func fetchDevices () {
+        // fetch devices from CoreData
+        
         let fetchRequest : NSFetchRequest<Device> = Device.fetchRequest()
         do {
             let devices = try PersistenceService.context.fetch(fetchRequest)
@@ -33,6 +35,8 @@ class DeviceTableViewController: UITableViewController {
 
     
     @IBAction func plusButtonPressed(_ sender: Any) {
+        // fire alerts to let the user create a new device
+        
         let alert = UIAlertController(title: "Add a new device", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Device Name"
@@ -51,12 +55,16 @@ class DeviceTableViewController: UITableViewController {
     }
     
     func persistNewDevice(newDevice: Device) {
+        // store the device in CoreData and refresh the tableView
+        
         self.devices.append(newDevice)
         PersistenceService.saveContext()
         self.tableView.reloadData()
     }
     
     func createNewDevice(name: String, device: Device) {
+        // set image and name to the new device
+        
         switch device {
         case device as CoffeeMachine:
             device.image = "CoffeeMachine"
@@ -96,6 +104,8 @@ class DeviceTableViewController: UITableViewController {
     var selectedDevice : Device?
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // set up segues to the Detail Views
+        
         let device = devices[indexPath.row]
         
         if device is FireAlarm {
@@ -118,6 +128,8 @@ class DeviceTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // pass device to the Detail View
+        
         if segue.identifier == "ShowCoffeeMachineDetail" {
             let deviceDetailVC = segue.destination as! CoffeeMachineViewController
             deviceDetailVC.coffeeMachine = selectedDevice as? CoffeeMachine
@@ -137,6 +149,8 @@ class DeviceTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // delete device after confirmation
+        
         if indexPath.row < devices.count
         {
             let alert = UIAlertController(title: "Are you sure you want to delete \(devices[indexPath.row].name ?? "the device")?", message: nil, preferredStyle: .alert)

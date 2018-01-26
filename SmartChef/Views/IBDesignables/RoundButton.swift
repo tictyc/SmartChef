@@ -31,10 +31,14 @@ import UIKit
     var alarmState: Bool = true
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // start animation
+        
         e = UIViewPropertyAnimator(duration: 1.0, curve: .easeInOut) {
             self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }
         e.addCompletion{ _ in
+            // switch the state on touch completion
+            
             self.changeState(oldState: self.alarmState)
         }
         e.startAnimation()

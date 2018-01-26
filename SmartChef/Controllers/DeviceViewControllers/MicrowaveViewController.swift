@@ -231,15 +231,17 @@ extension MicrowaveViewController:UIPickerViewDelegate,UIPickerViewDataSource {
         }
     }
     
-    
-    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
     @objc func addToFavorites() {
+        // add device to favorites and refresh UIBarButtonItems
+        
         microwave?.isFavorite = true
         PersistenceService.saveContext()
         loadBarButtons()
     }
     
     @objc func removeFromFavorites() {
+        // remove device from favorites and refresh UIBarButtonItems
+        
         microwave?.isFavorite = false
         PersistenceService.saveContext()
         loadBarButtons()

@@ -55,14 +55,17 @@ class FridgeViewController: UIViewController {
     }
     
     
-    // navigation item buttons, have not found a way to inherit those yet due to struggling with the selector engine, hence the un-dry code
     @objc func addToFavorites() {
+        // add device to favorites and refresh UIBarButtonItems
+        
         fridge?.isFavorite = true
         PersistenceService.saveContext()
         loadBarButtons()
     }
     
     @objc func removeFromFavorites() {
+        // remove device from favorites and refresh UIBarButtonItems
+        
         fridge?.isFavorite = false
         PersistenceService.saveContext()
         loadBarButtons()
